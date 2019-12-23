@@ -1,0 +1,11 @@
+#!/bin/bash
+  
+incdir=$(dirname $0)/..
+
+restore_configs
+
+. $incdir/base-zenxy-config
+. $incdir/drv8825
+
+opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 200, 200, 800, 200 }"
+opt_enable REVERSE_ENCODER_DIRECTION

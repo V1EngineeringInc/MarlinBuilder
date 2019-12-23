@@ -1,0 +1,70 @@
+name: V1 pull from MarlinFirmware
+
+on:
+  schedule:
+    # On 15-th minute, every 6 hours
+    - cron:  '15 */6 * * *'
+
+  push:
+    branches:
+      - 'v1-machines**'
+    paths:
+      - '.github/workflows/v1-pull.yml'
+      - 'v1-scripts/**'
+      - '!v1-scripts/config/**'
+
+  pull_request:
+    branches:
+      - 'v1-machines**'
+    paths:
+      - '.github/workflows/v1-pull.yml'
+      - 'v1-scripts/**'
+      - '!v1-scripts/config/**'
+
+jobs:
+
+  pull:
+    name: Pull from bugfix-2.0.x
+    runs-on: ubuntu-latest
+
+    env:
+      UPSTREAM_BRANCH: bugfix-2.0.x
+      MIRROR_BRANCH: bugfix-2.0.x
+
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v2
+
+    # Based on .github/workflows/test-builds.yml
+    - name: Select Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.7' # Version range or exact version of a Python version to use, using semvers version range syntax.
+        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+
+    - name: Install PlatformIO
+      run: |
+        pip install -U https://github.com/platformio/platformio-core/archive/master.zip
+        platformio update
+
+    - name: Set git identity
+      run: |
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
+        git config --global advice.detachedHead false
+
+    - name: Pull
+      run: |
+        v1-scripts/fetch-branch "origin/$MIRROR_BRANCH"
+        v1-scripts/pull-from-upstream
+
+    - name: Check
+      run: |
+        v1-scripts/diff-branches "$MIRROR_BRANCH" "origin/$MIRROR_BRANCH" && exit 0 # No changes
+        v1-scripts/generate-build-branch
+        v1-scripts/build-for-machine MPCNC/Rambo_T8_16T_LCD_DualEndstop
+
+    - name: Push
+      if: github.event_name != 'pull_request'
+      run: |
+        git push origin "$MIRROR_BRANCH:refs/heads/$MIRROR_BRANCH" --force

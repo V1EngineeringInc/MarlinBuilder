@@ -1,0 +1,11 @@
+#!/bin/bash
+
+incdir=$(dirname $0)/..
+
+use_example_configs CNC/MPCNC
+opt_enable SHOW_CUSTOM_BOOTSCREEN
+
+. $incdir/board-rambo
+. $incdir/no-dual-endstops
+
+opt_enable REVERSE_ENCODER_DIRECTION

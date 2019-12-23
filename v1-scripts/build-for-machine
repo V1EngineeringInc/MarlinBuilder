@@ -1,0 +1,13 @@
+#!/bin/bash
+
+machine=$1
+shift
+
+export PATH=$PATH:buildroot/bin
+
+set -ex
+
+eval $(v1-scripts/configs/build-settings.py "$machine")
+
+use_example_configs $machine
+build_marlin_pio . -e "$env" "$@"

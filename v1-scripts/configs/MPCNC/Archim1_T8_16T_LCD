@@ -1,0 +1,21 @@
+#!/bin/bash
+
+incdir=$(dirname $0)/..
+
+use_example_configs CNC/MPCNC
+opt_enable SHOW_CUSTOM_BOOTSCREEN
+
+. $incdir/board-archim1
+. $incdir/no-dual-endstops
+. $incdir/drv8825
+
+opt_set MINIMUM_STEPPER_PULSE "2"
+
+# Why?
+opt_set DEFAULT_MAX_FEEDRATE "{ 120, 120, 30, 25 }"
+opt_set Z3_DRIVER_TYPE "DRV8825"
+opt_set E3_DRIVER_TYPE "DRV8825"
+opt_set E4_DRIVER_TYPE "DRV8825"
+opt_set E5_DRIVER_TYPE "DRV8825"
+opt_disable SHOW_CUSTOM_BOOTSCREEN CUSTOM_USER_MENUS
+opt_disable Z3_DRIVER_TYPE E3_DRIVER_TYPE E4_DRIVER_TYPE E5_DRIVER_TYPE 

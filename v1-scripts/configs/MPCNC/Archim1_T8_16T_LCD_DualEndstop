@@ -1,0 +1,17 @@
+#!/bin/bash
+
+incdir=$(dirname $0)/..
+
+use_example_configs CNC/MPCNC
+opt_enable SHOW_CUSTOM_BOOTSCREEN
+
+. $incdir/board-archim1
+. $incdir/dual-endstops
+. $incdir/drv8825
+
+opt_set MINIMUM_STEPPER_PULSE "3"
+
+# Why?
+opt_set DEFAULT_MAX_FEEDRATE "{ 120, 120, 30, 120 }"
+opt_disable SHOW_CUSTOM_BOOTSCREEN CUSTOM_USER_MENUS SOFT_ENDSTOPS_MENU_ITEM MIN_SOFTWARE_ENDSTOPS \
+    REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER

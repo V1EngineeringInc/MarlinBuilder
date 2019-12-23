@@ -1,0 +1,32 @@
+#!/bin/bash
+
+incdir=$(dirname $0)/..
+
+use_example_configs CNC/MPCNC
+opt_enable SHOW_CUSTOM_BOOTSCREEN
+
+. $incdir/no-dual-endstops
+
+opt_set SERIAL_PORT "-1"
+opt_set MOTHERBOARD "BOARD_ARCHIM2"
+opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 100, 100, 400, 100 }"
+opt_set SPI_SPEED "SPI_HALF_SPEED"
+opt_set MICROSTEP1 "LOW,LOW,LOW"
+opt_set MICROSTEP2 "HIGH,LOW,LOW"
+opt_set MICROSTEP4 "LOW,HIGH,LOW"
+opt_set MICROSTEP8 "HIGH,HIGH,LOW"
+opt_set MICROSTEP16 "LOW,LOW,HIGH"
+opt_set MICROSTEP32 "HIGH,LOW,HIGH"
+opt_set MICROSTEP_MODES "{ 16, 16, 16, 16, 16 }"
+opt_set PWM_MOTOR_CURRENT "{ 1200, 1200, 1200 }"
+opt_set MAXIMUM_STEPPER_RATE "400000"
+opt_enable EEPROM_SETTINGS
+
+# Why?
+opt_set JUNCTION_DEVIATION_MM "0.005"
+opt_set MANUAL_FEEDRATE "{30*60, 30*60, 3*60, 60}"
+opt_set MM_PER_ARC_SEGMENT ".15"
+opt_set X_MAX_ENDSTOP_INVERTING "true"
+opt_set Y_MAX_ENDSTOP_INVERTING "true"
+opt_set Z_MAX_ENDSTOP_INVERTING "true"
+opt_enable BABYSTEP_ALWAYS_AVAILABLE

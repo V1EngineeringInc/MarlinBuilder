@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -ex
+
+# Inspired by https://github.com/actions/checkout#Fetch-all-branches
+
+for b in "$@"; do
+    o=$(dirname "$b")
+    l=$(basename "$b")
+    git fetch --no-tags --prune --depth=1 "$o" "+refs/heads/$l*:refs/remotes/$b*"
+done

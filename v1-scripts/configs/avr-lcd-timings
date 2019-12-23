@@ -1,0 +1,2 @@
+opt_add ST7920_DELAY_2 "DELAY_NS(250)"
+opt_add ST7920_DELAY_3 "DELAY_NS(250)"

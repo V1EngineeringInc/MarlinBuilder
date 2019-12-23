@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+v1-scripts/build-for-machine MP3DP/MRambo_16T_aero
+v1-scripts/build-for-machine MP3DP/Ramps_16T_MK
+v1-scripts/build-for-machine ZenXY/MiniRambo_16T
+v1-scripts/build-for-machine ZenXY/Ramps_16T_LCD_32
+v1-scripts/build-for-machine MPCNC/MRambo_T8_16T_LCD
+v1-scripts/build-for-machine MPCNC/Rambo_T8_16T_LCD
+v1-scripts/build-for-machine MPCNC/Rambo_T8_16T_LCD_DualEndstop
+v1-scripts/build-for-machine MPCNC/Ramps_T8_16T_LCD_32step
+v1-scripts/build-for-machine MPCNC/Ramps_T8_16T_LCD_32step_DualEndstop
+v1-scripts/build-for-machine MPCNC/Archim1_T8_16T_LCD
+v1-scripts/build-for-machine MPCNC/Archim1_T8_16T_LCD_DualEndstop
+v1-scripts/build-for-machine MPCNC/Archim2_T8_16T_LCD_16step

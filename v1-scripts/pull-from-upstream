@@ -1,0 +1,35 @@
+#!/bin/bash
+
+UPSTREAM_REPOSITORY="${UPSTREAM_REPOSITORY:-https://github.com/MarlinFirmware/Marlin.git}"
+UPSTREAM_REMOTE_NAME="${UPSTREAM_REMOTE_NAME:-upstream}"
+UPSTREAM_BRANCH="${UPSTREAM_BRANCH:-$UPSTREAM_REMOTE_NAME/bugfix-2.0.x}"
+MIRROR_BRANCH="${MIRROR_BRANCH:-$UPSTREAM_BRANCH}"
+ORIGIN_REMOTE_NAME="${ORIGIN_REMOTE_NAME:-origin}"
+
+PULL_REQUESTS="${PULL_REQUESTS:-16108 16229}"
+
+set -xe
+
+git remote add -f -t "$UPSTREAM_BRANCH" $UPSTREAM_REMOTE_NAME "$UPSTREAM_REPOSITORY"
+trap "git remote remove $UPSTREAM_REMOTE_NAME" EXIT
+
+# Start with vanilla upstream code
+git checkout "$UPSTREAM_REMOTE_NAME/$UPSTREAM_BRANCH"
+
+# Fetch and merge upstream pull requests we deem necessary to carry in our version
+# See: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally
+for pr in $PULL_REQUESTS; do
+    git fetch $UPSTREAM_REMOTE_NAME "pull/$pr/head"
+    git merge --no-stat --no-ff --no-edit FETCH_HEAD
+done
+
+# Helpful message to user when running locally
+old_ref=$(git rev-parse --verify "$MIRROR_BRANCH" 2> /dev/null) && \
+    echo "Overwriting $MIRROR_BRANCH branch. Use git checkout -b new-name $old_ref to get it back"
+
+# Store results in a local branch
+git branch -f "$MIRROR_BRANCH"
+git branch -u "$ORIGIN_REMOTE_NAME/$MIRROR_BRANCH" "$MIRROR_BRANCH" || true # OK to fail
+
+# Go back to where I started from
+git checkout -
