@@ -1,5 +1,7 @@
 #!/bin/bash
   
+set -e
+
 incdir=$(dirname $0)/..
 
 restore_configs
