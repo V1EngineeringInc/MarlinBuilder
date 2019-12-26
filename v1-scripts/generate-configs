@@ -1,22 +1,27 @@
 #!/bin/bash
 
-SCRIPTDIR="v1-scripts/configs"
-CONFIGDIR="config/examples"
-
 set -e
+
+. $(dirname "$0")/env
+
+CONFIG_DIR="$V1_ROOT/$CFGDIR"
+MARLIN_CONFIG_DIR="${MARLIN_CONFIG_DIR:-config/examples}"
+
+cd "$V1_ROOT/$MARLINDIR"
 
 PATH=$PATH:buildroot/bin
 export PATH
 
-for script in "$SCRIPTDIR"/{MPCNC,MP3DP,ZenXY}/*; do
-    machine=${script#$SCRIPTDIR/}
-    cfgdir=$CONFIGDIR/$machine
+for script in "$CONFIG_DIR"/{MPCNC,MP3DP,ZenXY}/*; do
+    machine=${script#$CONFIG_DIR/}
+    cfgdir=$MARLIN_CONFIG_DIR/$machine
 
     echo "Generating config for $machine"
     $script
     
     mkdir -p "$cfgdir"
-    cp Marlin/Configuration{.h,_adv.h} "$SCRIPTDIR"/_Bootscreen.h "$cfgdir"
+    cp Marlin/Configuration{.h,_adv.h} "$CONFIG_DIR"/_Bootscreen.h "$cfgdir"
 done
 
 restore_configs
+git checkout Marlin/Configuration{.h,_adv.h} || exit 0 # OK to fail

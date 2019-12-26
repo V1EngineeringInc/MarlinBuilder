@@ -10,7 +10,9 @@ on:
       - 'v1-machines**'
     paths:
       - '.github/workflows/v1-pull.yml'
+      - '.github/scripts'
       - 'v1-scripts/**'
+      - 'MarlinFirmware'
       - '!v1-scripts/config/**'
 
   pull_request:
@@ -18,7 +20,9 @@ on:
       - 'v1-machines**'
     paths:
       - '.github/workflows/v1-pull.yml'
+      - '.github/scripts'
       - 'v1-scripts/**'
+      - 'MarlinFirmware'
       - '!v1-scripts/config/**'
 
 jobs:
@@ -29,11 +33,19 @@ jobs:
 
     env:
       UPSTREAM_BRANCH: bugfix-2.0.x
-      MIRROR_BRANCH: bugfix-2.0.x
 
     steps:
-    - name: Check out the code
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+    - run: .github/scripts/configure-git
+    - name: Check out submodules
+      run: |
+        git submodule sync --recursive
+        git submodule update --init --force --recursive --depth=1
+
+    - name: Pull
+      run: |
+        v1-scripts/fetch-branch "origin/v1-$UPSTREAM_BRANCH"
+        v1-scripts/pull-from-upstream
 
     # Based on .github/workflows/test-builds.yml
     - name: Select Python 3.7
@@ -47,24 +59,13 @@ jobs:
         pip install -U https://github.com/platformio/platformio-core/archive/master.zip
         platformio update
 
-    - name: Set git identity
-      run: |
-        git config --global user.email "actions@github.com"
-        git config --global user.name "GitHub Actions"
-        git config --global advice.detachedHead false
-
-    - name: Pull
-      run: |
-        v1-scripts/fetch-branch "origin/$MIRROR_BRANCH"
-        v1-scripts/pull-from-upstream
-
     - name: Check
       run: |
-        v1-scripts/diff-branches "$MIRROR_BRANCH" "origin/$MIRROR_BRANCH" && exit 0 # No changes
-        v1-scripts/generate-build-branch
+        #v1-scripts/diff-branches ... "origin/v1-$UPSTREAM_BRANCH" && exit 0 # No changes
         v1-scripts/build-for-machine MPCNC/Rambo_T8_16T_LCD_DualEndstop
 
     - name: Push
       if: github.event_name != 'pull_request'
       run: |
-        git push origin "$MIRROR_BRANCH:refs/heads/$MIRROR_BRANCH" --force
+        cd MarlinFirmware
+        git push origin "HEAD:refs/heads/v1-$UPSTREAM_BRANCH" --force

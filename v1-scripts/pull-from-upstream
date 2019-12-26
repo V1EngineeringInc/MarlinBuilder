@@ -1,35 +1,53 @@
 #!/bin/bash
 
+set -xe
+
+. $(dirname "$0")/env
+
 UPSTREAM_REPOSITORY="${UPSTREAM_REPOSITORY:-https://github.com/MarlinFirmware/Marlin.git}"
 UPSTREAM_REMOTE_NAME="${UPSTREAM_REMOTE_NAME:-upstream}"
-UPSTREAM_BRANCH="${UPSTREAM_BRANCH:-bugfix-2.0.x}"
-MIRROR_BRANCH="${MIRROR_BRANCH:-$UPSTREAM_BRANCH}"
 ORIGIN_REMOTE_NAME="${ORIGIN_REMOTE_NAME:-origin}"
+UPSTREAM_BRANCH="${UPSTREAM_BRANCH:-bugfix-2.0.x}"
+BUILD_BRANCH="${BUILD_BRANCH:-v1-$UPSTREAM_BRANCH}"
 
-PULL_REQUESTS="${PULL_REQUESTS:-16108 16229}"
+# Pull requests and other patches to be applied on top of the upsteam branch
+. $V1_ROOT/$CFGDIR/patches/$UPSTREAM_BRANCH
 
-set -xe
+cd "$V1_ROOT/$MARLINDIR"
 
 git remote add -f -t "$UPSTREAM_BRANCH" $UPSTREAM_REMOTE_NAME "$UPSTREAM_REPOSITORY"
 trap "git remote remove $UPSTREAM_REMOTE_NAME" EXIT
 
 # Start with vanilla upstream code
 git checkout "$UPSTREAM_REMOTE_NAME/$UPSTREAM_BRANCH"
+git show-ref --verify "refs/remotes/$UPSTREAM_REMOTE_NAME/$UPSTREAM_BRANCH" > v1-manifest
 
 # Fetch and merge upstream pull requests we deem necessary to carry in our version
 # See: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally
 for pr in $PULL_REQUESTS; do
     git fetch $UPSTREAM_REMOTE_NAME "pull/$pr/head"
+    echo "$(git rev-parse FETCH_HEAD) refs/remotes/$UPSTREAM_REMOTE_NAME/pull/$pr/head" >> v1-manifest
     git merge --no-stat --no-ff --no-edit FETCH_HEAD
 done
 
+for branch in $ADD_BRANCHES; do
+    git fetch "$ORIGIN_REMOTE_NAME" "$branch"
+    echo "$(git rev-parse FETCH_HEAD) refs/remotes/$ORIGIN_REMOTE_NAME/$branch" >> v1-manifest
+    git merge --no-stat --no-ff --no-edit FETCH_HEAD
+done
+
+# Store manifest
+git add v1-manifest
+git commit -m 'manifest'
+
+# Generate and commit configs
+generate-configs
+commit-configs
+
 # Helpful message to user when running locally
-old_ref=$(git rev-parse --verify "$MIRROR_BRANCH" 2> /dev/null) && \
-    echo "Overwriting $MIRROR_BRANCH branch. Use git checkout -b new-name $old_ref to get it back"
+old_ref=$(git rev-parse --verify "$BUILD_BRANCH" 2> /dev/null) && \
+    echo "Overwriting $BUILD_BRANCH branch. Use git checkout -b new-name $old_ref to get it back"
 
 # Store results in a local branch
-git branch -f "$MIRROR_BRANCH"
-git branch -u "$ORIGIN_REMOTE_NAME/$MIRROR_BRANCH" "$MIRROR_BRANCH" || true # OK to fail
-
-# Go back to where I started from
-git checkout -
+git branch -f "$BUILD_BRANCH"
+git branch -u "$ORIGIN_REMOTE_NAME/$BUILD_BRANCH" "$BUILD_BRANCH" || true # OK to fail

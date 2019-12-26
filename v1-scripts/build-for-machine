@@ -1,13 +1,18 @@
 #!/bin/bash
 
+set -ex
+
+. $(dirname "$0")/env
+
 machine=$1
 shift
 
+[ "$machine" ] || exit 2
+
+eval $($V1_ROOT/$CFGDIR/build-settings.py "$machine")
+
+cd "$V1_ROOT/$MARLINDIR"
 export PATH=$PATH:buildroot/bin
-
-set -ex
-
-eval $(v1-scripts/configs/build-settings.py "$machine")
 
 use_example_configs $machine
 build_marlin_pio . -e "$env" "$@"

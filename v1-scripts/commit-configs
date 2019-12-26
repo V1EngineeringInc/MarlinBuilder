@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -ex
+
+. $(dirname "$0")/env
+
+cd "$V1_ROOT/$MARLINDIR"
+git add config/examples
+git commit -m 'Add configuratons for V1 machines'

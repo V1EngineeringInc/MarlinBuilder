@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -ex
+
+. $(dirname "$0")/env
+
+cd "$V1_ROOT/$MARLINDIR"
+git checkout $(git log -n 1 --pretty="%H" v1-manifest)

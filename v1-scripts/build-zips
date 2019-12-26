@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -ex
+
+. $(dirname "$0")/env
+
+machine=$1
+[ "$machine" ] || exit 2
+eval $($V1_ROOT/$CFGDIR/build-settings.py "$machine")
+
+flatname=$(echo "$machine" | sed 's@/@_@g')
+dirname="$flatname"
+
+cd "$V1_ROOT"
+
+mkdir -p .bin
+cp "$MARLINDIR/.pio/build/$env/$out" ".bin/$flatname.$out"
+
+mkdir -p .zip
+ln -sf "$V1_ROOT/$MARLINDIR" ".zip/$dirname-src"
+(cd ".zip" && zip -prq "$flatname-src.zip" "$dirname-src"/*)

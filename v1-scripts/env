@@ -1,0 +1,8 @@
+V1_ROOT=${V1_ROOT:-$(cd "$(dirname "$0")/.."; pwd)}
+SCRIPTDIR="${SCRIPTDIR:-v1-scripts}"
+CFGDIR="${CFGDIR:-$SCRIPTDIR/configs}"
+MARLINDIR="${MARLINDIR:-MarlinFirmware}"
+
+PATH="$PATH:$V1_ROOT/$SCRIPTDIR"
+
+export V1_ROOT SCRIPTDIR CFGDIR MARLINDIR PATH

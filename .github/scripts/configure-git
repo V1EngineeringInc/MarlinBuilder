@@ -1,0 +1,11 @@
+# Magic from https://github.com/actions/checkout#Checkout-submodules
+auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+git config --global protocol.version 2
+git config --global http.extraheader "$auth_header"
+
+# Commit identity
+git config --global user.email "actions@github.com"
+git config --global user.name "GitHub Actions"
+
+# Other settings
+git config --global advice.detachedHead false
