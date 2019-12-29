@@ -90,6 +90,7 @@ jobs:
         - MPCNC/Ramps_T8_16T_LCD_32step
         - MPCNC/Ramps_T8_16T_LCD_32step_DualEndstop
         - MPCNC/SKR1.3_T8_16T_LCD_32step_DualEndstop
+        - MPCNC/SKRPro1.1_T8_16T_LCD_32step_DualEndstop
         - ZenXY/MiniRambo_16T
         - ZenXY/Ramps_16T_LCD_32
 
