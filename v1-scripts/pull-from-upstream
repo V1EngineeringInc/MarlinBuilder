@@ -15,6 +15,9 @@ BUILD_BRANCH="${BUILD_BRANCH:-v1-$UPSTREAM_BRANCH}"
 
 cd "$V1_ROOT/$MARLINDIR"
 
+# Check to see if the submodule has been initialized
+[[ -f .git ]] || (echo -e "\n\033[0;31mMissing git submodule, make sure to run\ngit submodule update --init --recursive\033[0m"; exit 1)
+
 git remote add -f -t "$UPSTREAM_BRANCH" $UPSTREAM_REMOTE_NAME "$UPSTREAM_REPOSITORY"
 trap "git remote remove $UPSTREAM_REMOTE_NAME" EXIT
 
