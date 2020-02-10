@@ -2,4 +2,4 @@
 # Changes to be applied on top of MarlinFirmware/Marlin/bugfix-2.0.x
 # 
 PULL_REQUESTS="${PULL_REQUESTS:-}"
-ADD_BRANCHES="${ADD_BRANCHES:-v1-base-config-2.0.x}"
+ADD_BRANCHES="${ADD_BRANCHES:-}"

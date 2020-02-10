@@ -4,9 +4,10 @@ set -e
 
 incdir=$(dirname $0)/..
 
-use_example_configs CNC/MPCNC
+restore_configs
 opt_enable SHOW_CUSTOM_BOOTSCREEN
 
+. $incdir/base-cnc-config
 . $incdir/no-dual-endstops
 . $incdir/avr-lcd-timings
 

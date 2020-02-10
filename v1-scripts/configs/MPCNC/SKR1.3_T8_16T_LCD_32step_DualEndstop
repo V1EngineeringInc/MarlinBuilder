@@ -4,14 +4,15 @@ set -e
 
 incdir=$(dirname $0)/..
 
-use_example_configs CNC/MPCNC
+restore_configs
 opt_enable SHOW_CUSTOM_BOOTSCREEN
+
+. $incdir/base-cnc-config
+. $incdir/drv8825
+. $incdir/dual-endstops
 
 opt_set MOTHERBOARD BOARD_BIGTREE_SKR_V1_3
 opt_set SERIAL_PORT "-1"
-
-. $incdir/drv8825
-. $incdir/dual-endstops
 
 opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 200, 200, 800, 200 }"
 opt_enable REVERSE_ENCODER_DIRECTION
