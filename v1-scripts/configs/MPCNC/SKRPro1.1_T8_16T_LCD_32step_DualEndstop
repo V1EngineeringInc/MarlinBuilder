@@ -11,7 +11,7 @@ opt_enable SHOW_CUSTOM_BOOTSCREEN
 . $incdir/drv8825
 . $incdir/dual-drivers-on-xy
 
-opt_set MOTHERBOARD BOARD_BIGTREE_SKR_PRO_V1_1
+opt_set MOTHERBOARD BOARD_BTT_SKR_PRO_V1_1
 opt_set SERIAL_PORT "-1"
 opt_set EXTRUDERS "1"
 
