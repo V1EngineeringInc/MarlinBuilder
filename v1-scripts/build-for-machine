@@ -15,4 +15,4 @@ cd "$V1_ROOT/$MARLINDIR"
 export PATH=$PATH:buildroot/bin
 
 use_example_configs $machine
-build_marlin_pio . -e "$env" "$@"
+platformio run --project-dir . -e "$env" --silent "$@"
