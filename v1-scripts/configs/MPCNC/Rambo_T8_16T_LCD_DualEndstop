@@ -9,7 +9,7 @@ opt_enable SHOW_CUSTOM_BOOTSCREEN
 
 . $incdir/base-cnc-config
 . $incdir/board-rambo
-. $incdir/dual-endstops
+. $incdir/dual-drivers-on-xy
 
 opt_enable REVERSE_ENCODER_DIRECTION
 

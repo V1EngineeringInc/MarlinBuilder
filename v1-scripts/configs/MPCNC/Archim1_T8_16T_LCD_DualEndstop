@@ -9,7 +9,7 @@ opt_enable SHOW_CUSTOM_BOOTSCREEN
 
 . $incdir/base-cnc-config
 . $incdir/board-archim1
-. $incdir/dual-endstops
+. $incdir/dual-drivers-on-xy
 . $incdir/drv8825
 
 opt_set MINIMUM_STEPPER_PULSE "3"
