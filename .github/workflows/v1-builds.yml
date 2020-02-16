@@ -96,6 +96,7 @@ jobs:
         - MPCNC/SKRPro1.1_T8_16T_LCD_32step_DualEndstop
         - ZenXY/MiniRambo_16T
         - ZenXY/Ramps_16T_LCD_32
+        - Lowrider/SKR1.3_T8_16T_LCD_32step_DualDrivers
 
     steps:
     - uses: actions/checkout@v2

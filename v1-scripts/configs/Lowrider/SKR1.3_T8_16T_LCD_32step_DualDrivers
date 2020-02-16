@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+incdir=$(dirname $0)/..
+
+restore_configs
+opt_enable SHOW_CUSTOM_BOOTSCREEN
+
+. $incdir/base-cnc-config
+. $incdir/drv8825
+. $incdir/dual-drivers-on-yz
+
+opt_set MOTHERBOARD BOARD_BTT_SKR_V1_3
+opt_set SERIAL_PORT "-1"
+
+opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 200, 200, 800, 200 }"
+opt_enable REVERSE_ENCODER_DIRECTION
+opt_enable MIN_SOFTWARE_ENDSTOP_Z
+
+# Lowrider gantry will drop for sure if Z is powered off
+opt_set DISABLE_INACTIVE_Z "false"

@@ -3,6 +3,7 @@
 # Bash 4.0 has associative arrays, but if it's available everywhere so Python it is
 
 MACHINES = {
+  'Lowrider/SKR1.3_T8_16T_LCD_32step_DualDrivers': { 'env': 'LPC1768', 'out': 'firmware.bin' },
   'MPCNC/Archim1_T8_16T_LCD': { 'env': 'DUE', 'out': 'firmware.bin' },
   'MPCNC/Archim1_T8_16T_LCD_DualEndstop': { 'env': 'DUE', 'out': 'firmware.bin' },
   'MPCNC/Archim2_T8_16T_LCD_16step': { 'env': 'DUE', 'out': 'firmware.bin' },

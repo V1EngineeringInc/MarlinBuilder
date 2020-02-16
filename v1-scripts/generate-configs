@@ -12,7 +12,7 @@ cd "$V1_ROOT/$MARLINDIR"
 PATH=$PATH:buildroot/bin
 export PATH
 
-for script in "$CONFIG_DIR"/{MPCNC,MP3DP,ZenXY}/*; do
+for script in "$CONFIG_DIR"/{MPCNC,MP3DP,ZenXY,Lowrider}/*; do
     machine=${script#$CONFIG_DIR/}
     cfgdir=$MARLIN_CONFIG_DIR/$machine
 
