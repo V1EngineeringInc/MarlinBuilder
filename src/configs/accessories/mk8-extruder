@@ -1,0 +1,4 @@
+
+opt_set TEMP_SENSOR_0 "11"
+
+echo "- Configured for MK8 extruder" >> README.md

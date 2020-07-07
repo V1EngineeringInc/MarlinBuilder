@@ -1,0 +1,41 @@
+#!/bin/bash
+
+set -ex
+. $(dirname "$0")/version
+. $(dirname "$0")/env
+
+## Move to Marlin Dir
+cd "$MARLINDIR"
+
+# First, take a record of everything that has changed before removing the git dir
+echo "git files that changed:" > git_diff.txt
+echo >> git_diff.txt
+git diff --name-status >> git_diff.txt
+echo >> git_diff.txt
+echo "git detailed diff:" >> git_diff.txt
+echo >> git_diff.txt
+git diff >> git_diff.txt
+echo >> git_diff.txt
+
+# Since we will be zipping up this folder as an artifact, let's clean it up a bit first.
+rm -rf \
+    .git \
+    .gitattributes \
+    .github \
+    .gitignore \
+    .pio \
+    process-palette.json \
+    config \
+    data \
+    docs \
+    lib \
+
+cd "$MARLINDIR"/..
+
+# rename the marlin directory
+mv "$MARLINDIR" "Marlin_${CONFIG_NAME}_${MARLIN_VERSION}_${V1_VERSION}"
+
+# It's ok if these fail
+mv firmware.bin "firmware_${CONFIG_NAME}_${MARLIN_VERSION}_${V1_VERSION}.bin" || echo "No bin file found"
+mv firmware.hex "firmware_${CONFIG_NAME}_${MARLIN_VERSION}_${V1_VERSION}.hex" || echo "No hex file found"
+

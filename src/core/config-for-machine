@@ -1,0 +1,28 @@
+#!/bin/bash
+
+## Script Setup
+
+set -ex
+. $(dirname "$0")/version
+. $(dirname "$0")/env
+
+## Parse arguments for machine
+export CONFIG_NAME=$1
+shift
+# Exit if we don't have a CONFIG_NAME name
+[ "$CONFIG_NAME" ] || exit 2
+
+## Move to Marlin Dir
+cd "$MARLINDIR"
+
+## Set up configs
+export PATH=$PATH:buildroot/bin
+
+restore_configs
+
+echo "# ${CONFIG_NAME} - ${MARLIN_VERSION} - ${V1_VERSION}" > README.md
+. $CFGDIR/$CONFIG_NAME
+
+# Set the default target for this board.
+$SCRIPTDIR/core/config-platformio-target ${PLATFORMIO_ENV}
+

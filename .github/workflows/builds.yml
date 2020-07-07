@@ -1,0 +1,83 @@
+name: V1 Builds
+
+on: [push, pull_request]
+
+#on:
+#  schedule:
+#    # On 45-th minute, every 6 hours
+#    - cron:  '45 */6 * * *'
+
+jobs:
+  build:
+
+    env:
+      MARLIN_VERSION: ${{ matrix.branch }}
+      CONFIG_NAME: ${{ matrix.machine }}
+
+    name: ${{ matrix.machine }}-${{ matrix.branch }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false # Allow all machines to finish building
+      matrix:
+        branch:
+        - bugfix-2.0.x
+        machine:
+        - V13DP_MiniRambo
+        - V1CNC_MiniRambo
+        - V1CNC_Rambo
+        - V1CNC_Rambo_Dual
+        - V1CNC_Rambo_DualLR
+        - V1CNC_Ramps_Dual
+        - V1CNC_SkrPro_Dual
+
+    steps:
+
+    # Based on .github/workflows/test-builds.yml
+    - name: Select Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.7' # Version range or exact version of a Python version to use, using semvers version range syntax.
+        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+
+    - name: Install PlatformIO
+      run: |
+        pip install -U https://github.com/platformio/platformio-core/archive/master.zip
+        platformio update
+
+    - name: Check out MarlinBuilder
+      uses: actions/checkout@v2
+
+    - name: Check out MarlinFirmware
+      uses: actions/checkout@v2
+      with:
+        repository: MarlinFirmware/Marlin
+        ref: ${{ matrix.branch }}
+        path: Marlin
+        clean: true
+        fetch-depth: 1
+
+    - name: Configure
+      run: |
+        src/core/config-for-machine ${{ matrix.machine }}
+
+    - name: Build
+      run: |
+        src/core/build-for-machine
+
+    - name: Clean Marlin for Zip
+      run: |
+        src/core/clean-marlin-for-zip
+
+    - name: Save Hex
+      uses: actions/upload-artifact@v2
+      with:
+        name: firmware-${{ matrix.machine }}-${{ matrix.branch }}
+        path: firmware_*
+
+    - name: Save Zip
+      uses: actions/upload-artifact@v2
+      with:
+        name: MarlinFirmware-${{ matrix.machine }}-${{ matrix.branch }}
+        path: Marlin_*
+

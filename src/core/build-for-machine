@@ -1,0 +1,16 @@
+#!/bin/bash
+
+## Script Setup
+
+set -ex
+. $(dirname "$0")/version
+. $(dirname "$0")/env
+
+## Move to Marlin Dir
+cd "$MARLINDIR"
+
+## Build
+platformio run --project-dir . --silent "$@"
+
+# Copy the output file out here, so we can save it as an artifact
+cp .pio/build/*/firmware.[bh]* ../

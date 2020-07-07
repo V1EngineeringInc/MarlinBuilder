@@ -1,4 +1,0 @@
-[submodule "MarlinFirmware"]
-	path = MarlinFirmware
-	url = ./
-	branch = v1-bugfix-2.0.x

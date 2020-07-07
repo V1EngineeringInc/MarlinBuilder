@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -xe
+
+## Parse arguments for machine
+export PLATFORMIO_ENV=$1
+shift
+# Exit if we don't have a PLATFORMIO_ENV name
+[ "$PLATFORMIO_ENV" ] || exit 2
+
+SED=$(which gsed || which sed)
+
+eval "${SED} -i 's/\(default_envs = \).*/\1${PLATFORMIO_ENV}/' platformio.ini"

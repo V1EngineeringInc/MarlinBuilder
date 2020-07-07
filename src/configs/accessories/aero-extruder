@@ -1,0 +1,5 @@
+
+opt_set TEMP_SENSOR_0 "5"
+opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 100, 100, 400, 837 }"
+
+echo "- Configured for Titan Aero extruder" >> README.md

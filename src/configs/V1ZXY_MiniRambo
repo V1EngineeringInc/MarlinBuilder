@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+restore_configs
+
+$CFGDIR/common/v1-base-config
+$CFGDIR/common/zenxy-config
+$CFGDIR/boards/mini-rambo
+$CFGDIR/accessories/reprap_discount_full_graphic_lcd
+$CFGDIR/accessories/no-dual-endstops
+
+export PLATFORMIO_ENV=rambo

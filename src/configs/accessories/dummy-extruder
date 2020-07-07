@@ -1,0 +1,6 @@
+
+opt_set EXTRUDERS 1
+opt_set TEMP_SENSOR_0 999
+opt_set DUMMY_THERMISTOR_999_VALUE 170
+
+echo "- Configured for dummy extruder" >> README.md

@@ -1,0 +1,7 @@
+opt_set MOTHERBOARD "BOARD_RAMBO"
+opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 100, 100, 400, 100 }"
+opt_set DIGIPOT_MOTOR_CURRENT "{ 138, 138, 138, 138, 138 }"
+
+# Write some useful tidbits to the readme.
+echo "- Configured for Rambo" >> README.md
+
