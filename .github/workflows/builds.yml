@@ -1,11 +1,11 @@
 name: V1 Builds
 
 on:
-  - push
-  - pull_request
-  - schedule:
+  schedule:
     # At 12:15 each day. No idea what time zone this is...
     - cron:  '15 12 * * *'
+  push:
+  pull_request:
 
 jobs:
   build:
