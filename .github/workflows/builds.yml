@@ -35,9 +35,12 @@ jobs:
         - V1CNC_Rambo_Dual
         - V1CNC_Rambo_DualLR
         - V1CNC_Ramps_Dual
-        - V1CNC_Skr1p3
-        - V1CNC_Skr1p3_Dual
-        - V1CNC_Skr1p3_DualLR
+        - V1CNC_Skr1p3_8825
+        - V1CNC_Skr1p3_2209
+        - V1CNC_Skr1p3_Dual_8825
+        - V1CNC_Skr1p3_Dual_2209
+        - V1CNC_Skr1p3_DualLR_8825
+        - V1CNC_Skr1p3_DualLR_2209
         - V1CNC_SkrPro_Dual
         - V1ZXY_MiniRambo
         - V1ZXY_Ramps
