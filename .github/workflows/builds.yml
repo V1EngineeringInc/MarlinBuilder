@@ -1,11 +1,11 @@
 name: V1 Builds
 
-on: [push, pull_request]
-
-#on:
-#  schedule:
-#    # On 45-th minute, every 6 hours
-#    - cron:  '45 */6 * * *'
+on:
+  - push
+  - pull_request
+  - schedule:
+    # At 12:15 each day. No idea what time zone this is...
+    - cron:  '15 12 * * *'
 
 jobs:
   build:
