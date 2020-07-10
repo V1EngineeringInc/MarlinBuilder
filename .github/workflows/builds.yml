@@ -25,12 +25,19 @@ jobs:
         - bugfix-2.0.x
         machine:
         - V13DP_MiniRambo
+        - V13DP_Ramps_MK8
+        - V1CNC_Archim1
+        - V1CNC_Archim1_Dual
+        - V1CNC_Archim2
+        - V1CNC_Archim2_Dual
         - V1CNC_MiniRambo
         - V1CNC_Rambo
         - V1CNC_Rambo_Dual
         - V1CNC_Rambo_DualLR
         - V1CNC_Ramps_Dual
         - V1CNC_SkrPro_Dual
+        - V1ZXY_MiniRambo
+        - V1ZXY_Ramps
 
     steps:
 
