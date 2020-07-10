@@ -1,0 +1,10 @@
+opt_set MOTHERBOARD BOARD_BTT_SKR_V1_3
+
+opt_set SERIAL_PORT "-1"
+opt_set SERIAL_PORT_2 -1
+
+opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 200, 200, 800, 200 }"
+
+# Write some useful tidbits to the readme.
+echo "- Configured for Skr v1.3" >> README.md
+
