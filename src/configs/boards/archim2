@@ -1,0 +1,15 @@
+
+opt_set MOTHERBOARD "BOARD_ARCHIM2"
+
+opt_set SERIAL_PORT "-1"
+
+opt_set SPI_SPEED "SPI_HALF_SPEED"
+
+opt_set MAXIMUM_STEPPER_RATE "400000"
+
+opt_set PWM_MOTOR_CURRENT "{ 1125, 1125, 1125 }"
+
+opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 100, 100, 400, 100 }"
+
+# Write some useful tidbits to the readme.
+echo "- Configured for Archim2" >> README.md

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e
+
+restore_configs
+
+export V1_VERSION=${V1_VERSION}D
+
+$CFGDIR/common/v1-base-config
+$CFGDIR/common/cnc-config
+$CFGDIR/boards/skr_1p3
+$CFGDIR/accessories/dummy-extruder
+$CFGDIR/accessories/tmc2209
+$CFGDIR/accessories/reprap_discount_full_graphic_lcd
+$CFGDIR/accessories/dual-drivers-on-yz
+
+export PLATFORMIO_ENV=LPC1768

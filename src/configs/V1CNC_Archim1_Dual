@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+restore_configs
+
+$CFGDIR/common/v1-base-config
+$CFGDIR/common/cnc-config
+$CFGDIR/boards/archim1
+$CFGDIR/accessories/drv8825
+$CFGDIR/accessories/reprap_discount_full_graphic_lcd
+$CFGDIR/accessories/dual-drivers-on-xy
+
+export PLATFORMIO_ENV=DUE

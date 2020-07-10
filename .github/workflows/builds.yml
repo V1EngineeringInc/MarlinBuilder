@@ -1,11 +1,11 @@
 name: V1 Builds
 
-on: [push, pull_request]
-
-#on:
-#  schedule:
-#    # On 45-th minute, every 6 hours
-#    - cron:  '45 */6 * * *'
+on:
+  schedule:
+    # At 12:15 each day. No idea what time zone this is...
+    - cron:  '15 12 * * *'
+  push:
+  pull_request:
 
 jobs:
   build:
@@ -25,12 +25,25 @@ jobs:
         - bugfix-2.0.x
         machine:
         - V13DP_MiniRambo
+        - V13DP_Ramps_MK8
+        - V1CNC_Archim1
+        - V1CNC_Archim1_Dual
+        - V1CNC_Archim2
+        - V1CNC_Archim2_Dual
         - V1CNC_MiniRambo
         - V1CNC_Rambo
         - V1CNC_Rambo_Dual
         - V1CNC_Rambo_DualLR
         - V1CNC_Ramps_Dual
+        - V1CNC_Skr1p3_8825
+        - V1CNC_Skr1p3_2209
+        - V1CNC_Skr1p3_Dual_8825
+        - V1CNC_Skr1p3_Dual_2209
+        - V1CNC_Skr1p3_DualLR_8825
+        - V1CNC_Skr1p3_DualLR_2209
         - V1CNC_SkrPro_Dual
+        - V1ZXY_MiniRambo
+        - V1ZXY_Ramps
 
     steps:
 

@@ -5,3 +5,6 @@
 export V1_VERSION=430
 export MARLIN_VERSION="${MARLIN_VERSION:-Custom}"
 export CONFIG_NAME="${CONFIG_NAME:-ConfigUnknown}"
+
+# Let's get a number for the version from the build, so we can try some basic maths.
+export MARLIN_CONFIG_VERSION=`grep CONFIGURATION_H_VERSION ${MARLINDIR}/Marlin/Configuration.h | cut -d" " -f3`

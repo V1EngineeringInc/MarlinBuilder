@@ -3,8 +3,8 @@
 ## Script Setup
 
 set -ex
-. $(dirname "$0")/version
 . $(dirname "$0")/env
+. $(dirname "$0")/version
 
 ## Move to Marlin Dir
 cd "$MARLINDIR"
