@@ -1,4 +1,11 @@
-opt_set MOTHERBOARD "BOARD_BTT_SKR_PRO_V1_2"
+
+if [ ${MARLIN_CONFIG_VERSION} -gt 020006 ]; then
+  opt_set MOTHERBOARD "BOARD_BTT_SKR_PRO_V1_2"
+  echo "Marlin 2.0.6+"
+else
+  opt_set MOTHERBOARD "BOARD_BTT_SKR_PRO_V1_1"
+  echo "Marlin 2.0.6-"
+fi
 
 opt_set SERIAL_PORT 1
 opt_set SERIAL_PORT_2 -1
