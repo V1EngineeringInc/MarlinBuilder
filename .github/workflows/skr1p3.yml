@@ -1,4 +1,4 @@
-name: rambo
+name: skr_1p3
 
 on:
   schedule:
@@ -9,6 +9,7 @@ on:
     - src/configs/V1*Archim*
     - src/configs/V1*Rambo*
     - src/configs/V1*Ramps*
+    - src/configs/V1*SkrPro*
     - '**/*.md'
   pull_request:
 
@@ -35,9 +36,6 @@ jobs:
         - V1CNC_Skr1p3_Dual_2209
         - V1CNC_Skr1p3_DualLR_8825
         - V1CNC_Skr1p3_DualLR_2209
-        - V1CNC_SkrPro_2209
-        - V1CNC_SkrPro_DualLR_2209
-        - V1CNC_SkrPro_Dual_2209
 
     steps:
 
