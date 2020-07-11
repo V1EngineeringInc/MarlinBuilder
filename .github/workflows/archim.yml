@@ -55,7 +55,7 @@ jobs:
         src/core/config-for-machine ${{ matrix.machine }}
 
     - name: Build
-      uses: Armim/Jo/arduino-test-compile@v2
+      uses: ArminJo/arduino-test-compile@v2
       with:
         # -fqbn in the first line of the arduino console log.
         arduino-board-fqbn: ultimachine:sam:archim
