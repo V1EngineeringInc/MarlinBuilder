@@ -1,4 +1,4 @@
-name: archim_builds
+name: archim
 
 on:
   schedule:
