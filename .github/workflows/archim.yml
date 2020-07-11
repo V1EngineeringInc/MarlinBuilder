@@ -1,0 +1,158 @@
+name: archim_builds
+
+on:
+  schedule:
+    # At 12:15 each day. No idea what time zone this is...
+    - cron:  '15 12 * * *'
+  push:
+    paths-ignore:
+    - src/configs/V1*Rambo*
+    - src/configs/V1*Ramps*
+    - src/configs/V1*Skr*
+    - '**/*.md'
+  pull_request:
+
+jobs:
+  build-platform-io:
+
+    env:
+      MARLIN_VERSION: ${{ matrix.branch }}
+      CONFIG_NAME: ${{ matrix.machine }}
+
+    name: ${{ matrix.machine }}-${{ matrix.branch }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false # Allow all machines to finish building
+      matrix:
+        branch:
+        - bugfix-2.0.x
+        machine:
+        - V1CNC_Archim1
+        - V1CNC_Archim1_Dual
+        - V1CNC_Archim2
+        - V1CNC_Archim2_Dual
+
+    steps:
+
+    # Based on .github/workflows/test-builds.yml
+    - name: Select Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.7' # Version range or exact version of a Python version to use, using semvers version range syntax.
+        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+
+    - name: Install PlatformIO
+      run: |
+        pip install -U https://github.com/platformio/platformio-core/archive/master.zip
+        platformio update
+
+    - name: Check out MarlinBuilder
+      uses: actions/checkout@v2
+
+    - name: Check out MarlinFirmware
+      uses: actions/checkout@v2
+      with:
+        repository: MarlinFirmware/Marlin
+        ref: ${{ matrix.branch }}
+        path: Marlin
+        clean: true
+        fetch-depth: 1
+
+    - name: Configure
+      run: |
+        src/core/config-for-machine ${{ matrix.machine }}
+
+    - name: Build
+      run: |
+        src/core/build-for-machine
+
+    - name: Clean Marlin for Zip
+      run: |
+        src/core/clean-marlin-for-zip
+
+    - name: Save Hex
+      uses: actions/upload-artifact@v2
+      with:
+        name: firmware-${{ matrix.machine }}-${{ matrix.branch }}
+        path: firmware_*
+
+    - name: Save Zip
+      uses: actions/upload-artifact@v2
+      with:
+        name: MarlinFirmware-${{ matrix.machine }}-${{ matrix.branch }}
+        path: Marlin_*
+
+  build-arduino:
+
+    env:
+      MARLIN_VERSION: ${{ matrix.branch }}
+      CONFIG_NAME: ${{ matrix.machine }}
+
+    name: ${{ matrix.machine }}-${{ matrix.branch }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false # Allow all machines to finish building
+      matrix:
+        branch:
+        - 2.0.5.4
+        machine:
+        - V1CNC_Archim1
+        - V1CNC_Archim1_Dual
+        - V1CNC_Archim2
+        - V1CNC_Archim2_Dual
+
+    steps:
+
+    # Based on .github/workflows/test-builds.yml
+    - name: Select Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.7' # Version range or exact version of a Python version to use, using semvers version range syntax.
+        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+
+    - name: Check out MarlinBuilder
+      uses: actions/checkout@v2
+
+    - name: Check out MarlinFirmware
+      uses: actions/checkout@v2
+      with:
+        repository: MarlinFirmware/Marlin
+        ref: ${{ matrix.branch }}
+        path: Marlin
+        clean: true
+        fetch-depth: 1
+
+    - name: Configure
+      run: |
+        src/core/config-for-machine ${{ matrix.machine }}
+
+    - name: Build
+      uses: ArminJo/arduino-test-compile@v2
+      with:
+        sketch-names: Marlin.ino
+        # -fqbn in the first line of the arduino console log.
+        arduino-board-fqbn: ultimachine:sam:archim
+        # This is what you would put into the board manager url.
+        platform-url: https://raw.githubusercontent.com/ultimachine/ArduinoAddons/master/package_ultimachine_index.json
+        # Save the .hex/.bin/whatever file. It should end up in $HOME/Marlin/
+        save-generated-files: true
+        required-libraries: TMCStepper
+
+    - name: Clean Marlin for Zip
+      run: |
+        src/core/clean-marlin-for-zip
+
+    - name: Save Hex
+      uses: actions/upload-artifact@v2
+      with:
+        name: firmware-${{ matrix.machine }}-${{ matrix.branch }}
+        path: firmware_*
+
+    - name: Save Zip
+      uses: actions/upload-artifact@v2
+      with:
+        name: MarlinFirmware-${{ matrix.machine }}-${{ matrix.branch }}
+        path: Marlin_*
+

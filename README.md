@@ -3,7 +3,11 @@
 This repository provides a preconfigured version of Marlin that is optimized for The
 V1Engineering.com machines.
 
-![V1 Builds](https://github.com/jeffeb3/MarlinBuilder/workflows/V1%20Builds/badge.svg)
+![rambo](https://github.com/jeffeb3/MarlinBuilder/workflows/rambo/badge.svg)
+![skr_pro](https://github.com/jeffeb3/MarlinBuilder/workflows/skr_pro/badge.svg)
+![archim](https://github.com/jeffeb3/MarlinBuilder/workflows/archim/badge.svg)
+![ramps](https://github.com/jeffeb3/MarlinBuilder/workflows/ramps/badge.svg)
+![skr_1p3](https://github.com/jeffeb3/MarlinBuilder/workflows/skr_1p3/badge.svg)
 
 ## Getting started
 
