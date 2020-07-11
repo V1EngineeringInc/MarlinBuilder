@@ -1,4 +1,4 @@
-name: platformio_build
+name: ramps
 
 on:
   schedule:
@@ -24,34 +24,8 @@ jobs:
         - 2.0.5.4
         - bugfix-2.0.x
         machine:
-        - V13DP_MiniRambo
         - V13DP_Ramps_MK8
-        - V1CNC_MiniRambo
-        - V1CNC_Rambo
-        - V1CNC_Rambo_Dual
-        - V1CNC_Rambo_DualLR
-        - V1CNC_Ramps_Dual
-        - V1CNC_Skr1p3_8825
-        - V1CNC_Skr1p3_2209
-        - V1CNC_Skr1p3_Dual_8825
-        - V1CNC_Skr1p3_Dual_2209
-        - V1CNC_Skr1p3_DualLR_8825
-        - V1CNC_Skr1p3_DualLR_2209
-        - V1CNC_SkrPro_2209
-        - V1CNC_SkrPro_DualLR_2209
-        - V1CNC_SkrPro_Dual_2209
-        - V1ZXY_MiniRambo
         - V1ZXY_Ramps
-        exclude:
-          # Exclude specific builds from 2.0.5.4
-          - branch: 2.0.5.4
-            machine: V1CNC_Archim1
-          - branch: 2.0.5.4
-            machine: V1CNC_Archim1_Dual
-          - branch: 2.0.5.4
-            machine: V1CNC_Archim2
-          - branch: 2.0.5.4
-            machine: V1CNC_Archim2_Dual
 
     steps:
 
