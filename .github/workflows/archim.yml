@@ -5,6 +5,11 @@ on:
     # At 12:15 each day. No idea what time zone this is...
     - cron:  '15 12 * * *'
   push:
+    paths-ignore:
+    - src/configs/V1*Rambo*
+    - src/configs/V1*Ramps*
+    - src/configs/V1*Skr*
+    - '**/*.md'
   pull_request:
 
 jobs:
@@ -78,7 +83,7 @@ jobs:
         name: MarlinFirmware-${{ matrix.machine }}-${{ matrix.branch }}
         path: Marlin_*
 
-  build:
+  build-arduino:
 
     env:
       MARLIN_VERSION: ${{ matrix.branch }}
