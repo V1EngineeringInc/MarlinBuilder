@@ -49,11 +49,13 @@ jobs:
         exclude:
           # Exclude specific builds from 2.0.5.4
           - branch: 2.0.5.4
-            machine:
-             - V1CNC_Archim1
-             - V1CNC_Archim1_Dual
-             - V1CNC_Archim2
-             - V1CNC_Archim2_Dual
+            machine: V1CNC_Archim1
+          - branch: 2.0.5.4
+            machine: V1CNC_Archim1_Dual
+          - branch: 2.0.5.4
+            machine: V1CNC_Archim2
+          - branch: 2.0.5.4
+            machine: V1CNC_Archim2_Dual
 
     steps:
 
