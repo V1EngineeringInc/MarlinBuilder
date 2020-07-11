@@ -38,4 +38,5 @@ mv "$MARLINDIR" "Marlin_${CONFIG_NAME}_${MARLIN_VERSION}_${V1_VERSION}"
 # It's ok if these fail
 mv firmware.bin "firmware_${CONFIG_NAME}_${MARLIN_VERSION}_${V1_VERSION}.bin" || echo "No bin file found"
 mv firmware.hex "firmware_${CONFIG_NAME}_${MARLIN_VERSION}_${V1_VERSION}.hex" || echo "No hex file found"
+mv Marlin.ino.bin "firmware_${CONFIG_NAME}_${MARLIN_VERSION}_${V1_VERSION}.bin" || echo "No Marlin bin file found"
 
