@@ -46,6 +46,14 @@ jobs:
         - V1CNC_SkrPro_Dual_2209
         - V1ZXY_MiniRambo
         - V1ZXY_Ramps
+        exclude:
+          # Exclude specific builds from 2.0.5.4
+          - branch: 2.0.5.4
+            machine:
+             - V1CNC_Archim1
+             - V1CNC_Archim1_Dual
+             - V1CNC_Archim2
+             - V1CNC_Archim2_Dual
 
     steps:
 
