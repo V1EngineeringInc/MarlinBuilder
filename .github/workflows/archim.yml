@@ -137,7 +137,7 @@ jobs:
         # This is what you would put into the board manager url.
         platform-url: https://raw.githubusercontent.com/ultimachine/ArduinoAddons/master/package_ultimachine_index.json
         # Save the .hex/.bin/whatever file. It should end up in $HOME/Marlin/
-        save-generated-files: true
+        set-build-path: true
         required-libraries: TMCStepper
 
     - name: Clean Marlin for Zip
