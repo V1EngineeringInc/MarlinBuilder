@@ -41,6 +41,9 @@ jobs:
 
     steps:
 
+    # First, cancel unfinished jobs.
+    - uses: technote-space/auto-cancel-redundant-job@v1
+
     # Based on .github/workflows/test-builds.yml
     - name: Select Python 3.7
       uses: actions/setup-python@v1
@@ -111,6 +114,9 @@ jobs:
         - V1CNC_Archim2_Dual
 
     steps:
+
+    # First, cancel unfinished jobs.
+    - uses: technote-space/auto-cancel-redundant-job@v1
 
     # Based on .github/workflows/test-builds.yml
     - name: Select Python 3.7
