@@ -8,7 +8,10 @@ set -ex
 cd "$MARLINDIR"
 
 # First, take a record of everything that has changed before removing the git dir
-echo "git files that changed:" > git_diff.txt
+echo "Marlin based on this commit:" > git_diff.txt
+git log -n 1 >> git_diff.txt
+echo >> git_diff.txt
+echo "git files that changed:" >> git_diff.txt
 echo >> git_diff.txt
 git diff --name-status >> git_diff.txt
 echo >> git_diff.txt
@@ -19,7 +22,6 @@ echo >> git_diff.txt
 
 # Since we will be zipping up this folder as an artifact, let's clean it up a bit first.
 rm -rf \
-    .git \
     .gitattributes \
     .github \
     .gitignore \
