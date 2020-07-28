@@ -5,13 +5,17 @@ on:
     # At 12:15 each day. No idea what time zone this is...
     - cron:  '15 12 * * *'
   push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
     paths-ignore:
     - src/configs/V1*Archim*
     - src/configs/V1*Rambo*
     - src/configs/V1*Ramps*
     - src/configs/V1*SkrPro*
     - '**/*.md'
-  pull_request:
 
 jobs:
   build:
