@@ -78,6 +78,7 @@ jobs:
       with:
         sketch-names: Marlin.ino
         # -fqbn in the first line of the arduino console log.
+        arduino-platform: arduino:avr,rambo:avr
         arduino-board-fqbn: rambo:avr:rambo
         # This is what you would put into the board manager url.
         platform-url: https://raw.githubusercontent.com/ultimachine/ArduinoAddons/master/package_ultimachine_index.json
