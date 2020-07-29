@@ -93,19 +93,14 @@ jobs:
         set-build-path: true
         required-libraries: U8glib
 
-    - name: Clean Marlin for Zip
+    - name: Zip up Marlin
       run: |
-        src/core/clean-marlin-for-zip
+        src/core/zip-marlin
 
-    - name: Save Hex
+    - name: Upload
       uses: actions/upload-artifact@v2
       with:
-        name: firmware-${{ matrix.machine }}-${{ matrix.branch }}
-        path: firmware_*
-
-    - name: Save Zip
-      uses: actions/upload-artifact@v2
-      with:
-        name: MarlinFirmware-${{ matrix.machine }}-${{ matrix.branch }}
-        path: Marlin_*
-
+        name: ${{ matrix.machine }}-${{ matrix.branch }}
+        path: |
+          firmware_*
+          Marlin*.zip
