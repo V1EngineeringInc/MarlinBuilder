@@ -29,7 +29,6 @@ jobs:
 
     strategy:
       fail-fast: false # Allow all machines to finish building
-      max-parallel: 1  # Try to reduce the failures by running fewer jobs at a time
       matrix:
         branch:
         - 2.0.6
