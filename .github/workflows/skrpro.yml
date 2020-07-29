@@ -5,13 +5,17 @@ on:
     # At 12:15 each day. No idea what time zone this is...
     - cron:  '15 12 * * *'
   push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
     paths-ignore:
     - src/configs/V1*Archim*
     - src/configs/V1*Rambo*
     - src/configs/V1*Ramps*
     - src/configs/V1*Skr1p3*
     - '**/*.md'
-  pull_request:
 
 jobs:
   build:
@@ -37,6 +41,9 @@ jobs:
         - V1CNC_SkrPro_Dual_2209
 
     steps:
+
+    # First, cancel unfinished jobs.
+    - uses: technote-space/auto-cancel-redundant-job@v1
 
     # Based on .github/workflows/test-builds.yml
     - name: Select Python 3.7

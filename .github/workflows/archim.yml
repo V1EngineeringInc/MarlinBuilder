@@ -5,12 +5,16 @@ on:
     # At 12:15 each day. No idea what time zone this is...
     - cron:  '15 12 * * *'
   push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
     paths-ignore:
     - src/configs/V1*Rambo*
     - src/configs/V1*Ramps*
     - src/configs/V1*Skr*
     - '**/*.md'
-  pull_request:
 
 jobs:
   build-platform-io:
@@ -36,6 +40,9 @@ jobs:
         - V1CNC_Archim2_Dual
 
     steps:
+
+    # First, cancel unfinished jobs.
+    - uses: technote-space/auto-cancel-redundant-job@v1
 
     # Based on .github/workflows/test-builds.yml
     - name: Select Python 3.7
@@ -96,7 +103,7 @@ jobs:
 
     strategy:
       fail-fast: false # Allow all machines to finish building
-      max-parallel: 3  # Try to reduce the failures by running fewer jobs at a time
+      max-parallel: 1  # Try to reduce the failures by running fewer jobs at a time
       matrix:
         branch:
         - 2.0.5.4
@@ -107,6 +114,9 @@ jobs:
         - V1CNC_Archim2_Dual
 
     steps:
+
+    # First, cancel unfinished jobs.
+    - uses: technote-space/auto-cancel-redundant-job@v1
 
     # Based on .github/workflows/test-builds.yml
     - name: Select Python 3.7
