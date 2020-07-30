@@ -17,7 +17,7 @@ on:
     - '**/*.md'
   release:
     types:
-      - created
+      - published
 
 jobs:
   build-platform-io:
