@@ -35,7 +35,6 @@ jobs:
       matrix:
         branch:
         - 2.0.6
-        - 2.0.5.4
         - bugfix-2.0.x
         machine:
         - V1CNC_Skr1p3_8825
