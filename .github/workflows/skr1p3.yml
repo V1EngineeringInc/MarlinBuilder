@@ -16,6 +16,9 @@ on:
     - src/configs/V1*Ramps*
     - src/configs/V1*SkrPro*
     - '**/*.md'
+  release:
+    types:
+      - created
 
 jobs:
   build:
@@ -83,10 +86,21 @@ jobs:
       run: |
         src/core/zip-marlin
 
-    - name: Upload
+    - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
         name: ${{ matrix.machine }}-${{ matrix.branch }}
         path: |
           firmware_*
-          Marlin*.zip
+          Marlin_*.zip
+
+    - name: Upload Marlin-${{ matrix.machine }}-${{ matrix.branch }}-src.zip to release
+      if: ${{ github.event_name == 'release' }}
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: Marlin-Release.zip
+        asset_name: ${{ matrix.machine }}-${{ matrix.branch }}-src.zip
+        asset_content_type: application/zip

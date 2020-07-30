@@ -2,7 +2,7 @@
 
 # Set up the custom version strings here.
 
-export V1_VERSION=430
+export V1_VERSION=500
 export MARLIN_VERSION="${MARLIN_VERSION:-Custom}"
 export CONFIG_NAME="${CONFIG_NAME:-ConfigUnknown}"
 
