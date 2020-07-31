@@ -32,9 +32,10 @@ jobs:
     strategy:
       fail-fast: false # Allow all machines to finish building
       matrix:
-        branch:
-        - 2.0.6
-        - bugfix-2.0.x
+        branch: ${{ fromJson(
+          github.event_name == 'schedule' && '["bugfix-2.0.x"]' ||
+          github.event_name == 'pull_request' && '["bugfix-2.0.x", "2.0.6"]' ||
+          '["2.0.6"]') }}
         machine:
         - V1CNC_Archim1
         - V1CNC_Archim1_Dual
