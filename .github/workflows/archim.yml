@@ -25,6 +25,7 @@ jobs:
     env:
       MARLIN_VERSION: ${{ matrix.branch }}
       CONFIG_NAME: ${{ matrix.machine }}
+      V1_VERSION: ${{ github.event_name == 'release' && github.event.release.tag_name || '' }}
 
     name: ${{ matrix.machine }}-${{ matrix.branch }}
     runs-on: ubuntu-latest
