@@ -1,0 +1,113 @@
+name: ramps
+
+on:
+  schedule:
+    # At 12:15 each day. No idea what time zone this is...
+    - cron:  '15 12 * * *'
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+    paths-ignore:
+    - src/configs/V1*Archim*
+    - src/configs/V1*Skr*
+    - src/configs/V1*Rambo*
+    - '**/*.md'
+  release:
+    types:
+      - published
+
+jobs:
+  build:
+
+    env:
+      MARLIN_VERSION: ${{ matrix.branch }}
+      CONFIG_NAME: ${{ matrix.machine }}
+      V1_VERSION: ${{ github.event_name == 'release' && github.event.release.tag_name || '' }}
+
+    name: ${{ matrix.machine }}-${{ matrix.branch }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false # Allow all machines to finish building
+      matrix:
+        branch: ${{ fromJson(
+          github.event_name == 'schedule' && '["bugfix-2.0.x"]' ||
+          github.event_name == 'pull_request' && '["bugfix-2.0.x", "2.0.6"]' ||
+          '["2.0.6"]') }}
+        machine:
+        - V13DP_Ramps_MK8
+        - V1ZXY_Ramps
+        - V1CNC_Ramps_Dual
+
+    steps:
+
+    # First, cancel unfinished jobs.
+    - uses: technote-space/auto-cancel-redundant-job@v1
+
+    # Based on .github/workflows/test-builds.yml
+    - name: Select Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.7' # Version range or exact version of a Python version to use, using semvers version range syntax.
+        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+
+    - name: Install PlatformIO
+      run: |
+        pip install -U https://github.com/platformio/platformio-core/archive/master.zip
+        platformio update
+
+    - name: Check out MarlinBuilder
+      uses: actions/checkout@v2
+
+    - name: Check out MarlinFirmware
+      uses: actions/checkout@v2
+      with:
+        repository: MarlinFirmware/Marlin
+        ref: ${{ matrix.branch }}
+        path: Marlin
+        clean: true
+        fetch-depth: 1
+
+    - name: Configure
+      run: |
+        src/core/config-for-machine ${{ matrix.machine }}
+
+    - name: Build
+      run: |
+        src/core/build-for-machine
+
+    - name: Build
+      uses: ArminJo/arduino-test-compile@v2
+      with:
+        sketch-names: Marlin.ino
+        # -fqbn in the first line of the arduino console log.
+        arduino-board-fqbn: arduino:avr:mega:cpu=atmega2560
+        # Save the .hex/.bin/whatever file. It should end up in $HOME/Marlin/
+        set-build-path: true
+        required-libraries: U8glib
+
+    - name: Zip up Marlin
+      run: |
+        src/core/zip-marlin
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ matrix.machine }}-${{ matrix.branch }}
+        path: |
+          firmware_*
+          Marlin_*.zip
+
+    - name: Upload Marlin-${{ matrix.machine }}-${{ matrix.branch }}-src.zip to release
+      if: ${{ github.event_name == 'release' }}
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: Marlin-Release.zip
+        asset_name: ${{ matrix.machine }}-${{ matrix.branch }}-src.zip
+        asset_content_type: application/zip

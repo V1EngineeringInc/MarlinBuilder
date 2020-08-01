@@ -14,4 +14,4 @@ opt_disable \
     Y_DUAL_STEPPER_DRIVERS \
     Y_DUAL_ENDSTOPS
 
-echo "- Configured for Dual YZ" >> README.md
+echo "- Configured for Single Driver XYZ" >> README.md
