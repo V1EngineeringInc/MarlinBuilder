@@ -3,7 +3,12 @@
 # This script adds the V1 logos, and names to the configs.
 
 opt_set STRING_CONFIG_H_AUTHOR "\"(V1 Engineering, Ryan, ${V1_VERSION})\""
-opt_set SHORT_BUILD_VERSION "\"${V1_VERSION} ${MARLIN_VERSION}\""
+
+# opt_set won't work, because it isn't in the configuration or configuration_adv.h, so I'm going to
+# just put it into the Configuration.h
+
+echo "#define SHORT_BUILD_VERSION \"${V1_VERSION} ${MARLIN_VERSION}\"" >> Marlin/Configuration.h
+
 cp $CFGDIR/common/_Bootscreen.h Marlin/
 opt_enable SHOW_CUSTOM_BOOTSCREEN
 
