@@ -5,5 +5,6 @@ pushd Marlin/src/HAL
 rm -rf DUE ESP32 LINUX LPC1768 SAMD51 STM* TEENSY*
 popd
 
-opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 200, 200, 800, 200 }"
+. $CFGDIR/accessories/use-32-microsteps
 
+echo "- Configured for RAMPS" >> README.md

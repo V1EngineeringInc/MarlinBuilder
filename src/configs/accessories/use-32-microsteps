@@ -1,0 +1,20 @@
+opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 200, 200, 800, 200 }"
+
+# NB! The values below will only have any effect if the board is fitted with programmable drivers
+
+opt_set X_MICROSTEPS "32"
+opt_set Y_MICROSTEPS "32"
+opt_set Z_MICROSTEPS "32"
+opt_set X2_MICROSTEPS "32"
+opt_set Y2_MICROSTEPS "32"
+opt_set Z2_MICROSTEPS "32"
+opt_set E0_MICROSTEPS "32"
+opt_set E1_MICROSTEPS "32"
+opt_set E2_MICROSTEPS "32"
+opt_set E3_MICROSTEPS "32"
+opt_set E4_MICROSTEPS "32"
+opt_set E5_MICROSTEPS "32"
+opt_set E6_MICROSTEPS "32"
+opt_set E7_MICROSTEPS "32"
+
+echo "- Configured to use 32 microsteps" >> README.md
