@@ -14,4 +14,9 @@ $CFGDIR/accessories/tmc2209
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-yz
 
+# TMC2209 directions are reversed on SKR1.3 boards
+opt_set INVERT_X_DIR true
+opt_set INVERT_Y_DIR false
+opt_set INVERT_Z_DIR true
+
 export PLATFORMIO_ENV=LPC1768
