@@ -45,6 +45,7 @@ jobs:
         - V1CNC_Skr1p3_Dual_2209
         - V1CNC_Skr1p3_DualLR_8825
         - V1CNC_Skr1p3_DualLR_2209
+        - V1CNC_Skr1p3_SensorlessLR_2209
 
     steps:
 
