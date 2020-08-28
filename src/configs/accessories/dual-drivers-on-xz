@@ -17,7 +17,7 @@ opt_disable \
 opt_set USER_DESC_4 "\"Probe Z min\""
 opt_set USER_GCODE_4 "\"G38.2 Z0\""
 
-opt_set Z2_USE_ENDSTOP "YMAX"
+opt_set Z2_USE_ENDSTOP "_YMAX_"
 
 opt_enable \
     MIN_SOFTWARE_ENDSTOPS \
