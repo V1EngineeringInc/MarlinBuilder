@@ -20,6 +20,7 @@ opt_set Y_CURRENT 900
 opt_set Z_CURRENT 900
 opt_set X2_CURRENT 900
 opt_set Y2_CURRENT 900
+opt_set Z2_CURRENT 900
 
 opt_enable \
     TMC_USE_SW_SPI \
