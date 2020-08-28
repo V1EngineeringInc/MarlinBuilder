@@ -5,6 +5,10 @@ opt_set SERIAL_PORT_2 0
 
 opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 200, 200, 800, 200 }"
 
+pushd Marlin/src/HAL
+rm -rf AVR DUE ESP32 LINUX SAMD51 STM* TEENSY*
+popd
+
 # Write some useful tidbits to the readme.
 echo "- Configured for Skr v1.3" >> README.md
 

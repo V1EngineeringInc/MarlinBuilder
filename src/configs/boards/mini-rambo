@@ -3,6 +3,10 @@ opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 100, 100, 400, 837 }"
 opt_set PWM_MOTOR_CURRENT "{ 900, 900, 900 }"
 opt_set E0_AUTO_FAN_PIN "6"
 
+pushd Marlin/src/HAL
+rm -rf DUE ESP32 LINUX LPC1768 SAMD51 STM* TEENSY*
+popd
+
 # Write some useful tidbits to the readme.
 echo "- Configured for MiniRambo" >> README.md
 
