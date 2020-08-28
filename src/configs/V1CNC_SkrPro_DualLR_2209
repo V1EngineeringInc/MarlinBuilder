@@ -12,6 +12,6 @@ $CFGDIR/boards/skr_pro
 $CFGDIR/accessories/dummy-extruder
 $CFGDIR/accessories/tmc2209
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
-$CFGDIR/accessories/dual-drivers-on-xz
+$CFGDIR/accessories/dual-drivers-on-yz
 
 export PLATFORMIO_ENV=BIGTREE_SKR_PRO
