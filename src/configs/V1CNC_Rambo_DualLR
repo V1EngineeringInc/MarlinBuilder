@@ -10,6 +10,6 @@ $CFGDIR/common/v1-base-config
 $CFGDIR/common/cnc-config
 $CFGDIR/boards/rambo
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
-$CFGDIR/accessories/dual-drivers-on-yz
+$CFGDIR/accessories/dual-drivers-on-xz
 
 export PLATFORMIO_ENV=rambo

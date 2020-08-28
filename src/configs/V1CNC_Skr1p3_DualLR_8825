@@ -12,6 +12,6 @@ $CFGDIR/boards/skr_1p3
 $CFGDIR/accessories/dummy-extruder
 $CFGDIR/accessories/drv8825
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
-$CFGDIR/accessories/dual-drivers-on-yz
+$CFGDIR/accessories/dual-drivers-on-xz
 
 export PLATFORMIO_ENV=LPC1768
