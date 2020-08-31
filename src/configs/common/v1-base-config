@@ -16,3 +16,5 @@ opt_enable SHOW_CUSTOM_BOOTSCREEN
 echo "# ${CONFIG_NAME} - ${MARLIN_VERSION} - ${V1_VERSION}" > README.md
 cat $CFGDIR/common/Readme_header.md >> README.md
 
+opt_enable \
+    EEPROM_AUTO_INIT
