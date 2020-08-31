@@ -32,7 +32,6 @@ opt_set USER_GCODE_3 "\"G28 X Y\""
 
 opt_enable \
     EEPROM_SETTINGS \
-    EEPROM_AUTO_INIT \
     CLASSIC_JERK \
     S_CURVE_ACCELERATION \
     ARC_SUPPORT \
