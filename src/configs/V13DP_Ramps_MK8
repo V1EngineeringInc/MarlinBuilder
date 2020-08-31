@@ -9,7 +9,6 @@ $CFGDIR/common/3dp-config
 $CFGDIR/boards/ramps
 $CFGDIR/accessories/drv8825
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
-$CFGDIR/accessories/no-dual-endstops
 $CFGDIR/accessories/mk8-extruder
 
 export PLATFORMIO_ENV=mega2560
