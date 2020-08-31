@@ -9,12 +9,12 @@ opt_set STRING_CONFIG_H_AUTHOR "\"(V1 Engineering, Ryan, ${V1_VERSION})\""
 
 echo "#define SHORT_BUILD_VERSION \"${V1_VERSION} ${MARLIN_VERSION}\"" >> Marlin/Configuration.h
 
+opt_enable \
+    EEPROM_AUTO_INIT
+
 cp $CFGDIR/common/_Bootscreen.h Marlin/
 opt_enable SHOW_CUSTOM_BOOTSCREEN
 
 # Start by putting the machine config and the marlin version in the readme
 echo "# ${CONFIG_NAME} - ${MARLIN_VERSION} - ${V1_VERSION}" > README.md
 cat $CFGDIR/common/Readme_header.md >> README.md
-
-opt_enable \
-    EEPROM_AUTO_INIT
