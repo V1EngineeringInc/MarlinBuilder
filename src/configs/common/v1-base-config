@@ -12,6 +12,9 @@ echo "#define SHORT_BUILD_VERSION \"${V1_VERSION} ${MARLIN_VERSION}\"" >> Marlin
 opt_enable \
     EEPROM_AUTO_INIT
 
+opt_disable \
+EVENT_GCODE_SD_ABORT
+
 cp $CFGDIR/common/_Bootscreen.h Marlin/
 opt_enable SHOW_CUSTOM_BOOTSCREEN
 

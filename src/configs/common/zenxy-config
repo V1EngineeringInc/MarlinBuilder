@@ -43,7 +43,6 @@ opt_enable \
     GCODE_MOTION_MODES
 
 opt_disable \
-    EVENT_GCODE_SD_STOP \
     USER_DESC_4 \
     USER_GCODE_4 \
     USER_DESC_5 \
