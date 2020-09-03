@@ -3,7 +3,7 @@ opt_set MOTHERBOARD BOARD_BTT_SKR_V1_3
 opt_set SERIAL_PORT "-1"
 opt_set SERIAL_PORT_2 0
 
-opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 200, 200, 800, 200 }"
+. $CFGDIR/accessories/use-32-microsteps
 
 pushd Marlin/src/HAL
 rm -rf AVR DUE ESP32 LINUX SAMD51 STM* TEENSY*
