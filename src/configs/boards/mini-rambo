@@ -7,6 +7,8 @@ pushd Marlin/src/HAL
 rm -rf DUE ESP32 LINUX LPC1768 SAMD51 STM* TEENSY*
 popd
 
+opt_set SERIAL_PORT_2 2
+
 # Write some useful tidbits to the readme.
 echo "- Configured for MiniRambo" >> README.md
 
