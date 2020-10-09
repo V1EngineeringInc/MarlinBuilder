@@ -10,5 +10,6 @@ $CFGDIR/boards/ramps
 $CFGDIR/accessories/drv8825
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/mk8-extruder
+$CFGDIR/accessories/auto-filament-change
 
 export PLATFORMIO_ENV=mega2560
