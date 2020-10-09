@@ -101,7 +101,7 @@ jobs:
       with:
         name: ${{ matrix.machine }}-${{ matrix.branch }}
         path: |
-          firmware_*
+          firmware*
           Marlin_*.zip
 
     - name: Upload Marlin-${{ matrix.machine }}-${{ matrix.branch }}-src.zip to release
