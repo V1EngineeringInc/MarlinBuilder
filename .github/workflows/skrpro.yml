@@ -36,8 +36,8 @@ jobs:
       matrix:
         branch: ${{ fromJson(
           github.event_name == 'schedule' && '["bugfix-2.0.x"]' ||
-          github.event_name == 'pull_request' && '["bugfix-2.0.x", "2.0.7"]' ||
-          '["2.0.7"]') }}
+          github.event_name == 'pull_request' && '["bugfix-2.0.x", "2.0.7.1"]' ||
+          '["2.0.7.1"]') }}
         machine:
         - V1CNC_SkrPro_2209
         - V1CNC_SkrPro_DualLR_2209
