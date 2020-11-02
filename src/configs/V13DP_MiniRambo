@@ -10,5 +10,6 @@ $CFGDIR/boards/mini-rambo
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/aero-extruder
 $CFGDIR/accessories/auto-filament-change
+$CFGDIR/accessories/mini-rambo_e_fan
 
 export PLATFORMIO_ENV=rambo
