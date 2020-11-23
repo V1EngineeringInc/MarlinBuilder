@@ -40,6 +40,7 @@ jobs:
         machine:
         - V13DP_Ramps_MK8
         - V1ZXY_Ramps
+        - V1CNC_Ramps
         - V1CNC_Ramps_Dual
 
     steps:
