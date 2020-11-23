@@ -12,8 +12,8 @@ opt_set SERIAL_PORT_2 -1
 
 opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 100, 100, 400, 100 }"
 
-opt_set define SPINDLE_LASER_ENA_PIN PB0   // Heater2
-opt_set define SPINDLE_LASER_PWM_PIN PC9
+opt_set #define SPINDLE_LASER_ENA_PIN PB0   // Heater2
+opt_set #define SPINDLE_LASER_PWM_PIN PC9
 
 
 pushd Marlin/src/HAL
