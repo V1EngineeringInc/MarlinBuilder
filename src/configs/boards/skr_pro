@@ -12,6 +12,10 @@ opt_set SERIAL_PORT_2 -1
 
 opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 100, 100, 400, 100 }"
 
+opt_add SPINDLE_LASER_ENA_PIN PB0   // Heater2
+opt_add SPINDLE_LASER_PWM_PIN PC9
+
+
 pushd Marlin/src/HAL
 rm -rf AVR DUE ESP32 LINUX LPC1768 SAMD51 TEENSY*
 popd
