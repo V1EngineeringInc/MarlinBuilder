@@ -9,6 +9,7 @@ opt_enable \
     LASER_MOVE_G0_OFF
 
 opt_disable \
+    SPINDLE_LASER_FREQUENCY \
     LASER_POWER_INLINE_TRAPEZOID
 
 echo "- Configured for 32 bit laser settings" >> README.md
