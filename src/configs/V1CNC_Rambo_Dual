@@ -17,6 +17,6 @@ opt_enable \
     Y2_DRIVER_TYPE A4988
 
 opt_disable \
-    E0_DRIVER_TYPE A4988
+    E0_DRIVER_TYPE
 
 export PLATFORMIO_ENV=rambo
