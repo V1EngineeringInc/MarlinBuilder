@@ -13,8 +13,8 @@ $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-yz
 
 opt_enable \
-    X2_DRIVER_TYPE A4988 \
-    Y2_DRIVER_TYPE A4988
+    X2_DRIVER_TYPE \
+    Y2_DRIVER_TYPE
 
 opt_disable \
     E0_DRIVER_TYPE
