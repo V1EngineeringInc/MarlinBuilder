@@ -11,6 +11,7 @@ $CFGDIR/common/cnc-config
 $CFGDIR/boards/rambo
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-yz
+$CFGDIR/accessories/laser-32bit
 
 opt_enable \
     X2_DRIVER_TYPE \
