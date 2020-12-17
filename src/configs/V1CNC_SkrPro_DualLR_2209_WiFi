@@ -15,6 +15,7 @@ $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-yz
 $CFGDIR/accessories/laser-32bit
 
+opt_set SERIAL_PORT_2 6
 opt_set X_DRIVER_TYPE  "TMC2209"
 opt_set Y_DRIVER_TYPE  "TMC2209"
 opt_set Z_DRIVER_TYPE  "TMC2209"
