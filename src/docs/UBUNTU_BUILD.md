@@ -18,9 +18,6 @@ pip install platformio
 ## _Checkout Marlin_
 ```
 git clone git@github.com:MarlinFirmware/Marlin.git Marlin -b bugfix-2.0.x --depth 1
-cd Marlin
-git checkout bugfix-2.0.x
-cd ..
 ```
 
 ## _Run build steps_
