@@ -1,0 +1,3 @@
+# Due to current limitation of Marlin, only two serial ports can be defined.
+# Using this config will swap out USB serial in favor of the an ESP3D module.
+opt_set SERIAL_PORT_2 6

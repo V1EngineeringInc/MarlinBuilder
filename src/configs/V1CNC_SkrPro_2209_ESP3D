@@ -4,7 +4,7 @@ set -e
 
 restore_configs
 
-export V1_VERSION=${V1_VERSION}D
+export V1_VERSION=${V1_VERSION}
 
 $CFGDIR/common/v1-base-config
 $CFGDIR/common/cnc-config
@@ -12,19 +12,10 @@ $CFGDIR/boards/skr_pro
 $CFGDIR/accessories/dummy-extruder
 $CFGDIR/accessories/tmc2209
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
-$CFGDIR/accessories/dual-drivers-on-yz
+$CFGDIR/accessories/no-dual-endstops
 $CFGDIR/accessories/laser-32bit
-
 # Due to current limitation of Marlin, only two serial ports can be defined.
 # Using this config will swap out USB serial in favor of the an ESP3D module.
-opt_set SERIAL_PORT_2 6
-opt_set X_DRIVER_TYPE  "TMC2209"
-opt_set Y_DRIVER_TYPE  "TMC2209"
-opt_set Z_DRIVER_TYPE  "TMC2209"
-opt_set Y2_DRIVER_TYPE  "TMC2209"
-opt_set Z2_DRIVER_TYPE  "TMC2209"
-
-opt_disable \
-    E0_DRIVER_TYPE
+$CFGDIR/accessories/esp3d_on_serial_6
 
 export PLATFORMIO_ENV=BIGTREE_SKR_PRO

@@ -12,8 +12,11 @@ $CFGDIR/boards/skr_pro
 $CFGDIR/accessories/dummy-extruder
 $CFGDIR/accessories/tmc2209
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
-$CFGDIR/accessories/dual-drivers-on-xy
+$CFGDIR/accessories/dual-drivers-on-yz
 $CFGDIR/accessories/laser-32bit
+# Due to current limitation of Marlin, only two serial ports can be defined.
+# Using this config will swap out USB serial in favor of the an ESP3D module.
+$CFGDIR/accessories/esp3d_on_serial_6
 
 opt_disable \
     E0_DRIVER_TYPE
