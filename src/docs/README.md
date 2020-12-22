@@ -39,6 +39,7 @@ automatically.
 
 ## Local builds
 
-Don't want to use github workflows, or you want to test your builds before commiting and pushing to github, check out some recipes below. Missing something? Please feel free to contribute via PR.
+If you want to use these scripts to configure Marlin on your local machine, then read the instructions here:
 
-- [Windows WSL2](WSL_BUILD.md)
+- [Windows WSL2](UBUNTU_BUILD.md)
+- [Ubuntu Linux](UBUNTU_BUILD.md)
