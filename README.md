@@ -21,6 +21,6 @@ _This is currently a work in progress. If you are just looking to download firmw
 
 However, if you are feeling adventurous and want to build your own release, check out the development docs. 
 
-__CAUTION__: this is highly unsupported and may result in unexpected behavoir. Continue at your own risk :)
+__CAUTION__: this is highly unsupported and may result in unexpected behavior. Continue at your own risk :)
 
  - [Development README](src/docs/README.md)
