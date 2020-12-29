@@ -1,6 +1,7 @@
 /.bin
 /.zip
 /venv
+/.venv
 /Marlin
 /firmware.hex
 /firmware.bin
