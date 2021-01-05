@@ -32,4 +32,11 @@ opt_disable \
     STEALTHCHOP_Z \
     STEALTHCHOP_E
 
+# Stall sensitivity values are driver specific.
+# These will only be used when sensorless homing is also enabled
+# TMC2209 sensitivity setting is 255..0, 0 being the most insentive
+opt_set X_STALL_SENSITIVITY "50"
+opt_set Y_STALL_SENSITIVITY "50"
+opt_set Z_STALL_SENSITIVITY "40"
+
 echo "- Configured for TMC2209" >> README.md
