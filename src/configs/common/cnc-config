@@ -26,6 +26,10 @@ opt_set USER_DESC_2 "\"Home Z Axis\""
 opt_set USER_GCODE_2 "\"G28 Z\""
 opt_set USER_DESC_3 "\"Home X\&Y\""
 opt_set USER_GCODE_3 "\"G28 X Y\""
+opt_set USER_DESC_4 "\"Goto XY 0,0\""
+opt_set USER_GCODE_4 "\"G0 X0 Y0 F700\""
+opt_set USER_DESC_5 "\"Goto Z 0\""
+opt_set USER_GCODE_5 "\"G0 Z0 F350\""
 
 opt_enable \
     EEPROM_SETTINGS \
@@ -42,10 +46,6 @@ opt_disable \
     MIN_SOFTWARE_ENDSTOP_Z \
     MAX_SOFTWARE_ENDSTOPS \
     MIN_ARC_SEGMENTS \
-    USER_DESC_4 \
-    USER_GCODE_4 \
-    USER_DESC_5 \
-    USER_GCODE_5
 
 # Write some useful tidbits to the readme.
 echo "- Configured for CNC" >> README.md
