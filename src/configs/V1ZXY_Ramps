@@ -4,6 +4,8 @@ set -e
 
 restore_configs
 
+export V1_VERSION=${V1_VERSION}
+
 $CFGDIR/common/v1-base-config
 $CFGDIR/common/zenxy-config
 $CFGDIR/boards/ramps
