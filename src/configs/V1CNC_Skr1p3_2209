@@ -4,7 +4,7 @@ set -e
 
 restore_configs
 
-export V1_VERSION=${V1_VERSION}D
+export V1_VERSION=${V1_VERSION}S
 
 $CFGDIR/common/v1-base-config
 $CFGDIR/common/cnc-config
