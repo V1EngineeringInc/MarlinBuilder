@@ -1,0 +1,19 @@
+opt_set MOTHERBOARD BOARD_BTT_SKR_V1_4_TURBO
+
+opt_set SERIAL_PORT 0
+opt_set SERIAL_PORT_2 "-1"
+
+opt_set Y_MAX_PIN E1_DIAG_PIN
+opt_set X_MAX_PIN E0_DIAG_PIN
+opt_set Z_MIN_PIN P1_27
+opt_set Z_MAX_PIN P1_00
+
+. $CFGDIR/accessories/use-32-microsteps
+
+pushd Marlin/src/HAL
+rm -rf AVR DUE ESP32 LINUX SAMD51 STM* TEENSY*
+popd
+
+# Write some useful tidbits to the readme.
+echo "- Configured for Skr Turbo v1.4" >> README.md
+
