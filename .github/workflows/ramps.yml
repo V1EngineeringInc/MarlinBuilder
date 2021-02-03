@@ -42,6 +42,7 @@ jobs:
         - V1ZXY_Ramps
         - V1CNC_Ramps
         - V1CNC_Ramps_Dual
+        - V1CNC_Ramps_DualLR
 
     steps:
 

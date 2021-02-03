@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e
+
+restore_configs
+
+export V1_VERSION=${V1_VERSION}DL
+
+$CFGDIR/common/v1-base-config
+$CFGDIR/common/cnc-config
+$CFGDIR/boards/ramps
+$CFGDIR/accessories/drv8825
+$CFGDIR/accessories/reprap_discount_full_graphic_lcd
+$CFGDIR/accessories/dual-drivers-on-yz
+
+opt_enable \
+    X2_DRIVER_TYPE \
+    Y2_DRIVER_TYPE
+
+opt_disable \
+    E0_DRIVER_TYPE
+
+export PLATFORMIO_ENV=mega2560
