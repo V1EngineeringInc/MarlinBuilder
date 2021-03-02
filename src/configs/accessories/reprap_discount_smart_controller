@@ -3,6 +3,7 @@ opt_enable \
     SDSUPPORT \
     REPRAP_DISCOUNT_SMART_CONTROLLER
 
+
 opt_disable \
     SHOW_CUSTOM_BOOTSCREEN \
 	
