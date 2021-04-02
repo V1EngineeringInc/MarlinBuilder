@@ -8,14 +8,10 @@ export V1_VERSION=${V1_VERSION}DL
 
 $CFGDIR/common/v1-base-config
 $CFGDIR/common/cnc-config
-$CFGDIR/boards/skr_pro
+$CFGDIR/boards/skr_turbo_1p4
 $CFGDIR/accessories/dummy-extruder
-$CFGDIR/accessories/tmc2209
+$CFGDIR/accessories/drv8825
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-yz
-$CFGDIR/accessories/laser-32bit
 
-opt_disable \
-    E0_DRIVER_TYPE
-
-export PLATFORMIO_ENV=BIGTREE_SKR_PRO
+export PLATFORMIO_ENV=LPC1769

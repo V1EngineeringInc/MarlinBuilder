@@ -1,4 +1,4 @@
-name: rambo
+name: skr_turbo
 
 on:
   schedule:
@@ -12,8 +12,9 @@ on:
     - main
     paths-ignore:
     - src/configs/V1*Archim*
+    - src/configs/V1*Rambo*
     - src/configs/V1*Ramps*
-    - src/configs/V1*Skr*
+    - src/configs/V1*Skr1p3*
     - '**/*.md'
   release:
     types:
@@ -38,14 +39,9 @@ jobs:
           github.event_name == 'pull_request' && '["bugfix-2.0.x", "2.0.7.2"]' ||
           '["2.0.7.2"]') }}
         machine:
-        - V13DP_MiniRambo
-        - V13DP_Rambo
-        - V1CNC_MiniRambo
-        - V1CNC_Rambo
-        - V1CNC_Rambo_Dual
-        - V1CNC_Rambo_DualLR
-        - V1ZXY_MiniRambo
-        - V1ZXY_Rambo
+        - V1CNC_SkrTurbo_8825
+        - V1CNC_SkrTurbo_DualLR_8825
+        - V1CNC_SkrTurbo_Dual_8825
 
     steps:
 
@@ -83,19 +79,6 @@ jobs:
     - name: Build
       run: |
         src/core/build-for-machine
-
-    - name: Build
-      uses: ArminJo/arduino-test-compile@v2
-      with:
-        sketch-names: Marlin.ino
-        # -fqbn in the first line of the arduino console log.
-        arduino-platform: arduino:avr,rambo:avr
-        arduino-board-fqbn: rambo:avr:rambo
-        # This is what you would put into the board manager url.
-        platform-url: https://raw.githubusercontent.com/ultimachine/ArduinoAddons/master/package_ultimachine_index.json
-        # Save the .hex/.bin/whatever file. It should end up in $HOME/Marlin/
-        set-build-path: true
-        required-libraries: U8glib
 
     - name: Zip up Marlin
       run: |

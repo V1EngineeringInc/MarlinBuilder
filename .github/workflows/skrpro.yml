@@ -39,12 +39,14 @@ jobs:
           github.event_name == 'pull_request' && '["bugfix-2.0.x", "2.0.7.2"]' ||
           '["2.0.7.2"]') }}
         machine:
+        - V13DP_SkrPro_2209
         - V1CNC_SkrPro_2209
         - V1CNC_SkrPro_2209_ESP3D
         - V1CNC_SkrPro_DualLR_2209
         - V1CNC_SkrPro_DualLR_2209_ESP3D
         - V1CNC_SkrPro_Dual_2209
         - V1CNC_SkrPro_Dual_2209_ESP3D
+        - V1ZXY_SkrPro_2209
 
     steps:
 

@@ -8,9 +8,10 @@ export V1_VERSION=${V1_VERSION}S
 
 $CFGDIR/common/v1-base-config
 $CFGDIR/common/cnc-config
-$CFGDIR/boards/archim2
-$CFGDIR/accessories/tmc2130
+$CFGDIR/boards/skr_turbo_1p4
+$CFGDIR/accessories/dummy-extruder
+$CFGDIR/accessories/drv8825
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/no-dual-endstops
 
-export PLATFORMIO_ENV=DUE_archim
+export PLATFORMIO_ENV=LPC1769
