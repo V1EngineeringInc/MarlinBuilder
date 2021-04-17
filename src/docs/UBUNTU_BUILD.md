@@ -1,6 +1,9 @@
-# Local development build [Ubuntu Linux / WSL2]
+# Local development build [Ubuntu Linux / Windows WSL2]
 
 __Ensure you have the dependencies.__
+
+## For windows install WSL2
+https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
 ## _Install Python_ 
 ```
