@@ -95,7 +95,7 @@ jobs:
         platform-url: https://raw.githubusercontent.com/ultimachine/ArduinoAddons/master/package_ultimachine_index.json
         # Save the .hex/.bin/whatever file. It should end up in $HOME/Marlin/
         set-build-path: true
-        required-libraries: U8glib
+        required-libraries: U8glib-HAL
 
     - name: Zip up Marlin
       run: |
