@@ -85,11 +85,11 @@ jobs:
         src/core/build-for-machine
 
     - name: Checkout U8glib-HAL Marlin library
-        uses: actions/checkout@v2
-        with:
-          repository: MarlinFirmware/U8glib-HAL
-          ref: master
-          path: CustomU8glibMarlin
+      uses: actions/checkout@v2
+      with:
+        repository: MarlinFirmware/U8glib-HAL
+        ref: master
+        path: CustomU8glibMarlin
 
     - name: Build
       uses: ArminJo/arduino-test-compile@v2
