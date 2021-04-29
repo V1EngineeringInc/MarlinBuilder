@@ -89,7 +89,7 @@ jobs:
         path: CustomU8glibMarlin
 
     - name: Build
-      uses: ArminJo/arduino-test-compile@v2
+      uses: ArminJo/arduino-test-compile@v3
       with:
         sketch-names: Marlin.ino
         # -fqbn in the first line of the arduino console log.
