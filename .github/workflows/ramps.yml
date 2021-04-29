@@ -81,16 +81,6 @@ jobs:
       run: |
         src/core/build-for-machine
 
-    - name: Build
-      uses: ArminJo/arduino-test-compile@v2
-      with:
-        sketch-names: Marlin.ino
-        # -fqbn in the first line of the arduino console log.
-        arduino-board-fqbn: arduino:avr:mega:cpu=atmega2560
-        # Save the .hex/.bin/whatever file. It should end up in $HOME/Marlin/
-        set-build-path: true
-        required-libraries: U8glib
-
     - name: Zip up Marlin
       run: |
         src/core/zip-marlin

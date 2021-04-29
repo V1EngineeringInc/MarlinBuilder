@@ -84,19 +84,6 @@ jobs:
       run: |
         src/core/build-for-machine
 
-    - name: Build
-      uses: ArminJo/arduino-test-compile@v2
-      with:
-        sketch-names: Marlin.ino
-        # -fqbn in the first line of the arduino console log.
-        arduino-platform: arduino:avr,rambo:avr
-        arduino-board-fqbn: rambo:avr:rambo
-        # This is what you would put into the board manager url.
-        platform-url: https://raw.githubusercontent.com/ultimachine/ArduinoAddons/master/package_ultimachine_index.json
-        # Save the .hex/.bin/whatever file. It should end up in $HOME/Marlin/
-        set-build-path: true
-        required-libraries: U8glib
-
     - name: Zip up Marlin
       run: |
         src/core/zip-marlin
