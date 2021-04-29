@@ -85,7 +85,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: MarlinFirmware/U8glib-HAL
-        ref: master
+        ref: 0.4.4
         path: CustomU8glibMarlin
 
     - name: Build
