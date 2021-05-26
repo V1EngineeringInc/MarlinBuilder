@@ -1,4 +1,5 @@
 opt_set EXTRUDERS "0"
+opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 100, 100, 400 }"
 opt_set X_MIN_ENDSTOP_INVERTING "false"
 opt_set Y_MIN_ENDSTOP_INVERTING "false"
 opt_set X_MAX_ENDSTOP_INVERTING "false"

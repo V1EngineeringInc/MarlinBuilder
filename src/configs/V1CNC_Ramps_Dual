@@ -13,4 +13,6 @@ $CFGDIR/accessories/drv8825
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-xy
 
+opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 200, 200, 800 }"
+
 export PLATFORMIO_ENV=mega2560
