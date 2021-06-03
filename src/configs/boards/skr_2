@@ -6,7 +6,7 @@ opt_set SERIAL_PORT_2 "-1"
 . $CFGDIR/accessories/use-32-microsteps
 
 pushd Marlin/src/HAL
-rm -rf AVR DUE ESP32 LINUX SAMD51 STM* TEENSY*
+rm -rf AVR DUE ESP32 LINUX LPC1768 SAMD51 TEENSY*
 popd
 
 # Write some useful tidbits to the readme.
