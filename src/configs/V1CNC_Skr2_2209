@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+restore_configs
+
+export V1_VERSION=${V1_VERSION}S
+
+$CFGDIR/common/v1-base-config
+$CFGDIR/common/cnc-config
+$CFGDIR/boards/skr_2
+$CFGDIR/accessories/dummy-extruder
+$CFGDIR/accessories/tmc2209
+$CFGDIR/accessories/reprap_discount_full_graphic_lcd
+$CFGDIR/accessories/no-dual-endstops
+
+opt_set X_DRIVER_TYPE  "TMC2209"
+opt_set Y_DRIVER_TYPE  "TMC2209"
+opt_set Z_DRIVER_TYPE  "TMC2209"
+opt_set E0_DRIVER_TYPE  "TMC2209"
+
+export PLATFORMIO_ENV=BIGTREE_SKR_2
