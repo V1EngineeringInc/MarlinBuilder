@@ -6,6 +6,7 @@ opt_set Y_MAX_ENDSTOP_INVERTING "false"
 opt_set DEFAULT_MAX_FEEDRATE "{ 50, 50, 15 }"
 opt_set DEFAULT_MAX_ACCELERATION "{ 180, 180, 80 }"
 opt_set MANUAL_FEEDRATE "{ 50*60, 50*60, 4*60 }"
+opt_set AXIS_RELATIVE_MODES { false, false, false }
 
 
 opt_enable \
