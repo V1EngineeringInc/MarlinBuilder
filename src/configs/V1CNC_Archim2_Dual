@@ -12,5 +12,6 @@ $CFGDIR/boards/archim2
 $CFGDIR/accessories/tmc2130
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-xy
+$CFGDIR/boards/archim2_dual
 
 export PLATFORMIO_ENV=DUE_archim

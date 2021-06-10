@@ -12,5 +12,6 @@ $CFGDIR/boards/archim1
 $CFGDIR/accessories/drv8825
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-xy
+$CFGDIR/boards/archim1_dual
 
 export PLATFORMIO_ENV=DUE_archim
