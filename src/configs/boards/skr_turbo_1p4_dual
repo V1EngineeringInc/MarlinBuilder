@@ -1,0 +1,5 @@
+opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 200, 200, 800 }"
+
+
+# Write some useful tidbits to the readme.
+echo "- Configured for Skr Turbo v1.4 dual" >> README.md

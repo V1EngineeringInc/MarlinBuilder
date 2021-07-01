@@ -1,0 +1,4 @@
+opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 100, 100, 400 }"
+
+# Write some useful tidbits to the readme.
+echo "- Configured for Skr Pro v1.2 dual" >> README.md

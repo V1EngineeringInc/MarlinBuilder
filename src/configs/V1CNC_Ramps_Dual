@@ -12,5 +12,6 @@ $CFGDIR/boards/ramps
 $CFGDIR/accessories/drv8825
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-xy
+$CFGDIR/boards/ramps_dual
 
 export PLATFORMIO_ENV=mega2560
