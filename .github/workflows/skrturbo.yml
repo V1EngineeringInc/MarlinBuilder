@@ -42,6 +42,9 @@ jobs:
         - V1CNC_SkrTurbo_8825
         - V1CNC_SkrTurbo_DualLR_8825
         - V1CNC_SkrTurbo_Dual_8825
+        - V1CNC_SkrTurbo_2209
+        - V1CNC_SkrTurbo_Dual_2209
+        - V1CNC_SkrTurbo_DualLR_2209
 
     steps:
 
