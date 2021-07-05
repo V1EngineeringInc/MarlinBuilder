@@ -1,0 +1,14 @@
+opt_set MOTHERBOARD BOARD_BTT_SKR_V2_0_REV_B
+
+opt_set SERIAL_PORT 1
+opt_set SERIAL_PORT_2 "-1"
+
+. $CFGDIR/accessories/use-32-microsteps
+
+pushd Marlin/src/HAL
+rm -rf AVR DUE ESP32 LINUX LPC1768 SAMD51 TEENSY*
+popd
+
+# Write some useful tidbits to the readme.
+echo "- Configured for Skr 2" >> README.md
+
