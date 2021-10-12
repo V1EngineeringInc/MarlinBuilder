@@ -17,8 +17,6 @@ opt_set HOMING_BUMP_DIVISOR "{ 2, 2, 4 }"
 opt_set DEFAULT_STEPPER_DEACTIVE_TIME "1200"
 opt_set DISABLE_INACTIVE_Z "false"
 opt_set SD_FINISHED_STEPPERRELEASE "false"
-opt_set MM_PER_ARC_SEGMENT ".2"
-opt_set ARC_SEGMENTS_PER_R "1"
 opt_set CUSTOM_MENU_MAIN_TITLE "\"V1 Custom Menu\""
 opt_set MAIN_MENU_ITEM_1_DESC "\"Reset All Coordinates\""
 opt_set MAIN_MENU_ITEM_1_GCODE "\"G92 X0 Y0 Z0\""
@@ -31,7 +29,6 @@ opt_enable \
     EEPROM_SETTINGS \
     S_CURVE_ACCELERATION \
     ARC_SUPPORT \
-    ARC_SEGMENTS_PER_R \
     ADAPTIVE_STEP_SMOOTHING \
     CNC_COORDINATE_SYSTEMS \
     GCODE_MOTION_MODES \
@@ -40,8 +37,7 @@ opt_enable \
 
 opt_disable \
     MIN_SOFTWARE_ENDSTOP_Z \
-    MAX_SOFTWARE_ENDSTOPS \
-    MIN_ARC_SEGMENTS 
+    MAX_SOFTWARE_ENDSTOPS
     
 # Write some useful tidbits to the readme.
 echo "- Configured for CNC" >> README.md

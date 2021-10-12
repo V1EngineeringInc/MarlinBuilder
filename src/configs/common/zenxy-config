@@ -17,8 +17,6 @@ opt_set HOMING_BUMP_DIVISOR "{ 4, 4, 5 }"
 opt_set DEFAULT_STEPPER_DEACTIVE_TIME "1200"
 opt_set MANUAL_FEEDRATE "{30*60, 30*60, 3*60, 60}"
 opt_set LCD_TIMEOUT_TO_STATUS "45000"
-opt_set MM_PER_ARC_SEGMENT ".2"
-opt_set ARC_SEGMENTS_PER_R "1"
 opt_set CUSTOM_MENU_MAIN_TITLE "\"V1 Custom Menu\""
 opt_set MAIN_MENU_ITEM_1_DESC "\"Reset All Coordinates\""
 opt_set MAIN_MENU_ITEM_1_GCODE "\"G92 X0 Y0 Z0\""
@@ -31,7 +29,6 @@ opt_enable \
     COREXY \
     S_CURVE_ACCELERATION \
     ARC_SUPPORT \
-    ARC_SEGMENTS_PER_R \
     SOFT_ENDSTOPS_MENU_ITEM \
     EEPROM_SETTINGS \
     SDSUPPORT \
@@ -44,8 +41,6 @@ opt_enable \
     CNC_COORDINATE_SYSTEMS \
     GCODE_MOTION_MODES
 
-opt_disable \
-    MIN_ARC_SEGMENTS 
 
 # Write some useful tidbits to the readme.
 echo "- Configured for ZenXY" >> README.md
