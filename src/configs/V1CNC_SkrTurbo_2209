@@ -2,6 +2,7 @@
 
 set -e
 
+
 restore_configs
 
 export V1_VERSION=${V1_VERSION}S
