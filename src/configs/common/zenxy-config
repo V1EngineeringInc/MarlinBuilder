@@ -17,18 +17,18 @@ opt_set HOMING_BUMP_DIVISOR "{ 4, 4, 5 }"
 opt_set DEFAULT_STEPPER_DEACTIVE_TIME "1200"
 opt_set MANUAL_FEEDRATE "{30*60, 30*60, 3*60, 60}"
 opt_set LCD_TIMEOUT_TO_STATUS "45000"
-opt_set MM_PER_ARC_SEGMENT ".15"
-opt_set CUSTOM_USER_MENU_TITLE "\"V1 Custom Menu\""
-opt_set USER_DESC_1 "\"Reset All Coordinates\""
-opt_set USER_GCODE_1 "\"G92 X0 Y0 Z0\""
-opt_set USER_DESC_2 "\"Home Z Axis\""
-opt_set USER_GCODE_2 "\"G28 Z\""
-opt_set USER_DESC_3 "\"Home X\&Y\""
-opt_set USER_GCODE_3 "\"G28 X Y\""
+opt_set CUSTOM_MENU_MAIN_TITLE "\"V1 Custom Menu\""
+opt_set MAIN_MENU_ITEM_1_DESC "\"Reset All Coordinates\""
+opt_set MAIN_MENU_ITEM_1_GCODE "\"G92 X0 Y0 Z0\""
+opt_set MAIN_MENU_ITEM_2_DESC "\"Home Z Axis\""
+opt_set MAIN_MENU_ITEM_2_GCODE "\"G28 Z\""
+opt_set MAIN_MENU_ITEM_3_DESC "\"Home X\&Y\""
+opt_set MAIN_MENU_ITEM_3_GCODE "\"G28 X Y\""
 
 opt_enable \
     COREXY \
     S_CURVE_ACCELERATION \
+    ARC_SUPPORT \
     SOFT_ENDSTOPS_MENU_ITEM \
     EEPROM_SETTINGS \
     SDSUPPORT \
@@ -41,11 +41,6 @@ opt_enable \
     CNC_COORDINATE_SYSTEMS \
     GCODE_MOTION_MODES
 
-opt_disable \
-    USER_DESC_4 \
-    USER_GCODE_4 \
-    USER_DESC_5 \
-    USER_GCODE_5
 
 # Write some useful tidbits to the readme.
 echo "- Configured for ZenXY" >> README.md

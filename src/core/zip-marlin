@@ -38,4 +38,4 @@ cd "$MARLINDIR"/..
 short_name=$(basename "$MARLINDIR")
 zip -prq "Marlin_${CONFIG_NAME}_${MARLIN_VERSION}_${V1_VERSION}"-src.zip "$short_name"
 
-zip -pr Marlin-Release.zip "Marlin_${CONFIG_NAME}_${MARLIN_VERSION}_${V1_VERSION}"-src.zip firmware*
+zip -pr Marlin-Release.zip "Marlin_${CONFIG_NAME}_${MARLIN_VERSION}_${V1_VERSION}".zip firmware*
