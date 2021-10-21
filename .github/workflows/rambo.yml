@@ -96,7 +96,7 @@ jobs:
           firmware*
           Marlin_*.zip
 
-    - name: Upload Marlin-${{ matrix.machine }}-${{ matrix.branch }}-src.zip to release
+    - name: Upload Marlin-${{ matrix.machine }}-${{ matrix.branch }}.zip to release
       if: ${{ github.event_name == 'release' }}
       uses: actions/upload-release-asset@v1
       env:
@@ -104,5 +104,5 @@ jobs:
       with:
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: Marlin-Release.zip
-        asset_name: ${{ matrix.machine }}-${{ matrix.branch }}-src.zip
+        asset_name: ${{ matrix.machine }}-${{ matrix.branch }}.zip
         asset_content_type: application/zip
