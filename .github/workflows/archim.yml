@@ -76,15 +76,26 @@ jobs:
       run: |
         src/core/config-for-machine ${{ matrix.machine }}
 
-    - name: Build
-      run: |
-        src/core/build-for-machine
-
     - name: Zip up Marlin
       run: |
         src/core/zip-marlin
 
-    - name: Upload artifact
+    - name: Upload src artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ matrix.machine }}-${{ matrix.branch }}
+        path: |
+          Marlin_*.zip
+
+    - name: Build
+      run: |
+        src/core/build-for-machine
+
+    - name: Zip up release
+      run: |
+        src/core/zip-release
+
+    - name: Upload release artifact
       uses: actions/upload-artifact@v2
       with:
         name: ${{ matrix.machine }}-${{ matrix.branch }}
