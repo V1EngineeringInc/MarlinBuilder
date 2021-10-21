@@ -97,7 +97,7 @@ jobs:
       run: |
         src/core/zip-release
 
-    - name: Upload release artifact
+    - name: Upload built artifact
       uses: actions/upload-artifact@v2
       with:
         name: ${{ matrix.machine }}-${{ matrix.branch }}
