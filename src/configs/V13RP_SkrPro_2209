@@ -11,7 +11,6 @@ $CFGDIR/common/3dp-repeat-config
 $CFGDIR/boards/skr_pro
 $CFGDIR/accessories/tmc2209
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
-$CFGDIR/accessories/aero-extruder
 $CFGDIR/accessories/auto-filament-change
 
 opt_set X_DRIVER_TYPE  "TMC2209"
@@ -23,12 +22,12 @@ opt_set E0_DRIVER_TYPE  "TMC2209"
 opt_disable E1_DRIVER_TYPE
 opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 100, 100, 100, 395.45 }"
 opt_set NOZZLE_PARK_POINT "{ (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }"
-opt_set NOZZLE_PARK_XY_FEEDRATE 100
+opt_set NOZZLE_PARK_XY_FEEDRATE 80
 
 # TMC Settings
 opt_set HOLD_MULTIPLIER 0.6
-opt_set X_CURRENT  600
-opt_set Y_CURRENT  600
+opt_set X_CURRENT  700
+opt_set Y_CURRENT  700
 opt_set Z_CURRENT  650
 opt_set Z2_CURRENT 650
 opt_set Z3_CURRENT 650
