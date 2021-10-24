@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -ex
+. $(dirname "$0")/env
+. $(dirname "$0")/version
+
+# Zip up Marlin
+
+zip -pr Marlin-Release.zip "Marlin_${CONFIG_NAME}_${MARLIN_VERSION}_${V1_VERSION}"-src.zip firmware*

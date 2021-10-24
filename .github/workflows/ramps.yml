@@ -77,15 +77,26 @@ jobs:
       run: |
         src/core/config-for-machine ${{ matrix.machine }}
 
-    - name: Build
-      run: |
-        src/core/build-for-machine
-
     - name: Zip up Marlin
       run: |
         src/core/zip-marlin
 
-    - name: Upload artifact
+    - name: Upload src artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ matrix.machine }}-${{ matrix.branch }}
+        path: |
+          Marlin_*.zip
+
+    - name: Build
+      run: |
+        src/core/build-for-machine
+
+    - name: Zip up release
+      run: |
+        src/core/zip-release
+
+    - name: Upload built artifact
       uses: actions/upload-artifact@v2
       with:
         name: ${{ matrix.machine }}-${{ matrix.branch }}
@@ -93,7 +104,7 @@ jobs:
           firmware*
           Marlin_*.zip
 
-    - name: Upload Marlin-${{ matrix.machine }}-${{ matrix.branch }}-src.zip to release
+    - name: Upload Marlin-${{ matrix.machine }}-${{ matrix.branch }}.zip to release
       if: ${{ github.event_name == 'release' }}
       uses: actions/upload-release-asset@v1
       env:
@@ -101,5 +112,5 @@ jobs:
       with:
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: Marlin-Release.zip
-        asset_name: ${{ matrix.machine }}-${{ matrix.branch }}-src.zip
+        asset_name: ${{ matrix.machine }}-${{ matrix.branch }}.zip
         asset_content_type: application/zip
