@@ -1,4 +1,4 @@
-opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 200, 200, 800 }"
+#opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 200, 200, 800 }"
 
 
 # Write some useful tidbits to the readme.
