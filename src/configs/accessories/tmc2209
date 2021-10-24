@@ -23,7 +23,6 @@ opt_set Y2_CURRENT 900
 opt_set Z2_CURRENT 900
 
 opt_enable \
-    TMC_USE_SW_SPI \
     MONITOR_DRIVER_STATUS \
     SQUARE_WAVE_STEPPING \
     TMC_DEBUG
