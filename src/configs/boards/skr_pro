@@ -10,6 +10,8 @@ fi
 opt_set SERIAL_PORT 1
 opt_set SERIAL_PORT_2 -1
 
+opt_set SDCARD_CONNECTION LCD
+
 opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 100, 100, 400, 100 }"
 
 opt_add SPINDLE_LASER_ENA_PIN PB0   // Heater2
