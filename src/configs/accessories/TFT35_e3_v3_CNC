@@ -16,8 +16,6 @@ opt_set SDCARD_CONNECTION LCD
 opt_set SERIAL_FLOAT_PRECISION 4
 opt_set LCD_TIMEOUT_TO_STATUS "180000"
 
-$CFGDIR/accessories/laser-32bit
-
 opt_add SPINDLE_LASER_ENA_PIN PB0   // Heater2
 opt_add SPINDLE_LASER_PWM_PIN PC9
 
