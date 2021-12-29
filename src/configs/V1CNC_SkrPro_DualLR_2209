@@ -11,7 +11,7 @@ $CFGDIR/common/cnc-config
 $CFGDIR/boards/skr_pro
 $CFGDIR/accessories/dummy-extruder
 $CFGDIR/accessories/tmc2209
-$CFGDIR/accessories/reprap_discount_full_graphic_lcd
+$CFGDIR/accessories/TFT35_e3_v3_CNC
 $CFGDIR/accessories/dual-drivers-on-yz
 $CFGDIR/accessories/laser-32bit
 $CFGDIR/boards/skr_pro_dual
