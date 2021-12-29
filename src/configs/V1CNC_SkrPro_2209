@@ -13,6 +13,7 @@ $CFGDIR/accessories/dummy-extruder
 $CFGDIR/accessories/tmc2209
 $CFGDIR/accessories/TFT35_e3_v3_CNC
 $CFGDIR/accessories/no-dual-endstops
+$CFGDIR/accessories/laser-32bit
 
 opt_set X_DRIVER_TYPE  "TMC2209"
 opt_set Y_DRIVER_TYPE  "TMC2209"
