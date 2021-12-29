@@ -13,7 +13,6 @@ $CFGDIR/accessories/dummy-extruder
 $CFGDIR/accessories/tmc2209
 $CFGDIR/accessories/TFT35_e3_v3_CNC
 $CFGDIR/accessories/dual-drivers-on-yz
-$CFGDIR/accessories/laser-32bit
 $CFGDIR/boards/skr_pro_dual
 
 opt_set X_DRIVER_TYPE  "TMC2209"
