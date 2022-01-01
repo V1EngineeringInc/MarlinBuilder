@@ -14,6 +14,6 @@ opt_enable \
 
 opt_set SDCARD_CONNECTION LCD
 opt_set SERIAL_FLOAT_PRECISION 4
-opt_set LCD_TIMEOUT_TO_STATUS "300"
+opt_set LCD_TIMEOUT_TO_STATUS "300000"
 
 echo "- Configured for TFT35 E3 V3" >> README.md
