@@ -26,8 +26,8 @@ opt_set NOZZLE_PARK_XY_FEEDRATE 80
 
 # TMC Settings
 opt_set HOLD_MULTIPLIER 0.6
-opt_set X_CURRENT  700
-opt_set Y_CURRENT  700
+opt_set X_CURRENT  750
+opt_set Y_CURRENT  750
 opt_set Z_CURRENT  650
 opt_set Z2_CURRENT 650
 opt_set Z3_CURRENT 650
