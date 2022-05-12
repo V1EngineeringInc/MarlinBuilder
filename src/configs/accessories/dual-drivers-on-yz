@@ -12,8 +12,6 @@ opt_set AXIS_RELATIVE_MODES "{ false, false, false }"
 
 opt_set Z_HOME_DIR "+1"
 
-opt_set NUM_Z_STEPPER_DRIVERS "2"
-
 # Z Min probe configuration.
 opt_set Z_MIN_PROBE_PIN "Z_MIN_PIN"
 opt_disable \
