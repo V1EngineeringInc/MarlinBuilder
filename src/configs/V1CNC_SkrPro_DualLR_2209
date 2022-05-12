@@ -21,6 +21,9 @@ opt_set Z_DRIVER_TYPE  "TMC2209"
 opt_set Y2_DRIVER_TYPE  "TMC2209"
 opt_set Z2_DRIVER_TYPE  "TMC2209"
 
+opt_set Y2_CURRENT 900
+opt_set Z2_CURRENT 900
+
 opt_disable \
     E0_DRIVER_TYPE
 
