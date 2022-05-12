@@ -47,7 +47,6 @@ opt_set MESH_INSET 0
 opt_set GRID_MAX_POINTS_X 5
 
 opt_set E0_AUTO_FAN_PIN PE5
-opt_set NUM_Z_STEPPER_DRIVERS 3
 opt_set Z_STEPPER_ALIGN_AMP 1.55
 opt_set G34_MAX_GRADE              10
 opt_set Z_STEPPER_ALIGN_ITERATIONS 8

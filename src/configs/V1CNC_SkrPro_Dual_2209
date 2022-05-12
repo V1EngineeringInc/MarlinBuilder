@@ -9,7 +9,6 @@ export V1_VERSION=${V1_VERSION}D
 $CFGDIR/common/v1-base-config
 $CFGDIR/common/cnc-config
 $CFGDIR/boards/skr_pro
-$CFGDIR/accessories/dummy-extruder
 $CFGDIR/accessories/tmc2209
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-xy
@@ -21,6 +20,9 @@ opt_set Y_DRIVER_TYPE  "TMC2209"
 opt_set Z_DRIVER_TYPE  "TMC2209"
 opt_set X2_DRIVER_TYPE  "TMC2209"
 opt_set Y2_DRIVER_TYPE  "TMC2209"
+
+opt_set X2_CURRENT 900
+opt_set Y2_CURRENT 900
 
 opt_disable \
     E0_DRIVER_TYPE
