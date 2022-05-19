@@ -9,9 +9,13 @@ export V1_VERSION=${V1_VERSION}P
 $CFGDIR/common/v1-base-config
 $CFGDIR/common/3dp-config
 $CFGDIR/boards/ramps
-$CFGDIR/accessories/drv8825
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/mk8-extruder
 $CFGDIR/accessories/auto-filament-change
+
+opt_set X_DRIVER_TYPE "DRV8825"
+opt_set Y_DRIVER_TYPE "DRV8825"
+opt_set Z_DRIVER_TYPE "DRV8825"
+opt_set E0_DRIVER_TYPE "DRV8825"
 
 export PLATFORMIO_ENV=mega2560
