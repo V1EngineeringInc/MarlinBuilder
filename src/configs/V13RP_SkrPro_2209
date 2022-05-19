@@ -10,7 +10,7 @@ $CFGDIR/common/v1-base-config
 $CFGDIR/common/3dp-repeat-config
 $CFGDIR/boards/skr_pro
 $CFGDIR/accessories/tmc2209
-$CFGDIR/accessories/reprap_discount_full_graphic_lcd
+$CFGDIR/accessories/TFT35_E3_V3_Print
 $CFGDIR/accessories/auto-filament-change
 
 opt_set X_DRIVER_TYPE  "TMC2209"
