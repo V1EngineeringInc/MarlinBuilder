@@ -14,4 +14,10 @@ $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-xy
 $CFGDIR/boards/archim2_dual
 
+opt_set X_DRIVER_TYPE "TMC2130"
+opt_set Y_DRIVER_TYPE "TMC2130"
+opt_set Z_DRIVER_TYPE "TMC2130"
+opt_set X2_DRIVER_TYPE "TMC2130"
+opt_set Y2_DRIVER_TYPE "TMC2130"
+
 export PLATFORMIO_ENV=DUE_archim

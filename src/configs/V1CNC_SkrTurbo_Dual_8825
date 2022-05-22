@@ -10,9 +10,14 @@ $CFGDIR/common/v1-base-config
 $CFGDIR/common/cnc-config
 $CFGDIR/boards/skr_turbo_1p4
 $CFGDIR/accessories/dummy-extruder
-$CFGDIR/accessories/drv8825
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-xy
 $CFGDIR/boards/skr_turbo_1p4_dual
+
+opt_set X_DRIVER_TYPE "DRV8825"
+opt_set Y_DRIVER_TYPE "DRV8825"
+opt_set Z_DRIVER_TYPE "DRV8825"
+opt_set X2_DRIVER_TYPE "DRV8825"
+opt_set Y2_DRIVER_TYPE "DRV8825"
 
 export PLATFORMIO_ENV=LPC1769

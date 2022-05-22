@@ -9,8 +9,11 @@ export V1_VERSION=${V1_VERSION}S
 $CFGDIR/common/v1-base-config
 $CFGDIR/common/cnc-config
 $CFGDIR/boards/archim1
-$CFGDIR/accessories/drv8825
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/no-dual-endstops
+
+opt_set X_DRIVER_TYPE "DRV8825"
+opt_set Y_DRIVER_TYPE "DRV8825"
+opt_set Z_DRIVER_TYPE "DRV8825"
 
 export PLATFORMIO_ENV=DUE_archim
