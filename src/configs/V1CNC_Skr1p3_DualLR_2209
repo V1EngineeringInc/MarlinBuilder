@@ -15,4 +15,8 @@ $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-yz
 $CFGDIR/boards/skr_1p3_dual
 
+opt_set Y2_DRIVER_TYPE "TMC2209"
+opt_set Z2_DRIVER_TYPE "TMC2209"
+
+
 export PLATFORMIO_ENV=LPC1768
