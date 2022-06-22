@@ -11,7 +11,6 @@ $CFGDIR/common/cnc-config
 $CFGDIR/boards/rambo
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-xy
-$CFGDIR/accessories/laser-32bit
 $CFGDIR/boards/rambo_dual
 
 opt_enable \
