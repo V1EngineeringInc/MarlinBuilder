@@ -13,7 +13,7 @@ $CFGDIR/accessories/tmc2209
 $CFGDIR/accessories/TFT35_e3_v3_CNC
 $CFGDIR/accessories/dual-drivers-on-yz
 $CFGDIR/boards/skr_pro_dual
-$CFGDIR/accessories/laser-32bit
+
 
 opt_set X_DRIVER_TYPE  "TMC2209"
 opt_set Y_DRIVER_TYPE  "TMC2209"
