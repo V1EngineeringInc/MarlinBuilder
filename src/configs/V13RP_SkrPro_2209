@@ -21,13 +21,13 @@ opt_set Z3_DRIVER_TYPE  "TMC2209"
 opt_set E0_DRIVER_TYPE  "TMC2209"
 opt_disable E1_DRIVER_TYPE
 opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 100, 100, 100, 395.45 }"
-opt_set NOZZLE_PARK_POINT "{ (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }"
+opt_set NOZZLE_PARK_POINT "{ (X_MIN_POS + 10), (Y_MIN_POS + 5), 20 }"
 opt_set NOZZLE_PARK_XY_FEEDRATE 80
 
 # TMC Settings
-opt_set HOLD_MULTIPLIER 0.6
-opt_set X_CURRENT  750
-opt_set Y_CURRENT  750
+opt_set HOLD_MULTIPLIER 0.8
+opt_set X_CURRENT  725
+opt_set Y_CURRENT  725
 opt_set Z_CURRENT  650
 opt_set Z2_CURRENT 650
 opt_set Z3_CURRENT 650
