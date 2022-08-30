@@ -1,0 +1,40 @@
+#!/bin/bash
+
+set -e
+
+restore_configs
+
+export V1_VERSION=${V1_VERSION}P
+
+$CFGDIR/common/v1-base-config
+$CFGDIR/common/3dp-repeat-v4-config
+$CFGDIR/boards/skr_pro
+$CFGDIR/accessories/tmc2209
+$CFGDIR/accessories/TFT35_E3_V3_Print
+$CFGDIR/accessories/auto-filament-change
+
+opt_set X_DRIVER_TYPE  "TMC2209"
+opt_set Y_DRIVER_TYPE  "TMC2209"
+opt_set Z_DRIVER_TYPE  "TMC2209"
+opt_set Z2_DRIVER_TYPE  "TMC2209"
+opt_set Z3_DRIVER_TYPE  "TMC2209"
+opt_set E0_DRIVER_TYPE  "TMC2209"
+opt_disable E1_DRIVER_TYPE
+opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 100, 100, 100, 395.45 }"
+opt_set NOZZLE_PARK_POINT "{ (X_MIN_POS + 10), (Y_MIN_POS + 5), 20 }"
+opt_set NOZZLE_PARK_XY_FEEDRATE 80
+
+# TMC Settings
+opt_set HOLD_MULTIPLIER 0.8
+opt_set X_CURRENT  725
+opt_set Y_CURRENT  725
+opt_set Z_CURRENT  650
+opt_set Z2_CURRENT 650
+opt_set Z3_CURRENT 650
+opt_set E0_CURRENT 500
+
+opt_enable \
+    STEALTHCHOP_XY \
+    STEALTHCHOP_Z \
+    STEALTHCHOP_E
+export PLATFORMIO_ENV=BIGTREE_SKR_PRO
