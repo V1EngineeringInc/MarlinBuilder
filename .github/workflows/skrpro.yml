@@ -41,6 +41,7 @@ jobs:
         machine:
         - V13DP_SkrPro_2209
         - V13RP_SkrPro_2209
+        - V13RP_V4_SkrPro_2209
         - V1CNC_SkrPro_2209
         - V1CNC_SkrPro_DualLR_2209
         - V1CNC_SkrPro_Dual_2209

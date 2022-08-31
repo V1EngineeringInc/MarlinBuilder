@@ -7,7 +7,7 @@ restore_configs
 export V1_VERSION=${V1_VERSION}P
 
 $CFGDIR/common/v1-base-config
-$CFGDIR/common/3dp-repeat-config
+$CFGDIR/common/3dp-repeat-v4-config
 $CFGDIR/boards/skr_pro
 $CFGDIR/accessories/tmc2209
 $CFGDIR/accessories/TFT35_E3_V3_Print
