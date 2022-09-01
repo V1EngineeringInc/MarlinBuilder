@@ -12,6 +12,7 @@ $CFGDIR/boards/rambo
 $CFGDIR/boards/rambo_dual
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-xy
+$CFGDIR/accessories/laser
 
 opt_enable \
     X2_DRIVER_TYPE \

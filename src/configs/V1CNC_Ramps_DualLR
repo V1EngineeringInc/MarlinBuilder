@@ -12,6 +12,7 @@ $CFGDIR/boards/ramps
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/dual-drivers-on-yz
 $CFGDIR/boards/ramps_dual
+$CFGDIR/accessories/laser
 
 opt_set X_DRIVER_TYPE "DRV8825"
 opt_set Y_DRIVER_TYPE "DRV8825"
