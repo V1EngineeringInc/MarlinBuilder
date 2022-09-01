@@ -10,4 +10,4 @@ opt_enable \
 opt_disable \
     SPINDLE_LASER_FREQUENCY 
 
-echo "- Configured for bit laser settings" >> README.md
+echo "- Configured for laser settings" >> README.md
