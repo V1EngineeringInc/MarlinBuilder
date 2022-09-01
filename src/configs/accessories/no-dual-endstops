@@ -1,8 +1,6 @@
 opt_set EXTRUDERS 1
 opt_set TEMP_SENSOR_0 999
 opt_set DUMMY_THERMISTOR_999_VALUE 170
-opt_set X_MIN_ENDSTOP_INVERTING "false"
-opt_set Y_MIN_ENDSTOP_INVERTING "false"
 
 opt_disable \
     MIN_SOFTWARE_ENDSTOPS \
