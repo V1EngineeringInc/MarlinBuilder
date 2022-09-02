@@ -11,6 +11,6 @@ $CFGDIR/common/cnc-config
 $CFGDIR/boards/rambo
 $CFGDIR/accessories/reprap_discount_full_graphic_lcd
 $CFGDIR/accessories/no-dual-endstops
-$CFGDIR/accessories/laser-32bit
+$CFGDIR/accessories/laser
 
 export PLATFORMIO_ENV=rambo

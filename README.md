@@ -17,10 +17,4 @@ If you are looking for the latest release, you should go here:
 
 ## Experts and Developers
 
-_This is currently a work in progress. If you are just looking to download firmwares, this probably isn't the right place to be._
-
-However, if you are feeling adventurous and want to build your own release, check out the development docs. 
-
-__CAUTION__: this is highly unsupported and may result in unexpected behavior. Continue at your own risk :)
-
- - [Development README](src/docs/README.md)
+Nightly builds are found in the "Actions" tab above.
