@@ -9,6 +9,9 @@ fi
 
 opt_set SERIAL_PORT 1
 opt_set SERIAL_PORT_2 -1
+opt_set SERIAL_PORT_3 6
+
+opt_set SDCARD_CONNECTION ONBOARD
 
 
 opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 100, 100, 400, 100 }"
