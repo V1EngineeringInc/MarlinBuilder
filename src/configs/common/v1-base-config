@@ -11,6 +11,8 @@ echo "#define SHORT_BUILD_VERSION \"${V1_VERSION} ${MARLIN_VERSION}\"" >> Marlin
 
 opt_enable \
     DIRECT_PIN_CONTROL \
+    LONG_FILENAME_HOST_SUPPORT \
+    LONG_FILENAME_WRITE_SUPPORT \
     EEPROM_AUTO_INIT
 
 opt_disable \
