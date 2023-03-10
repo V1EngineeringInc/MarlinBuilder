@@ -20,11 +20,11 @@ pip install platformio
 
 ## _Checkout Marlin_
 ```
-git clone git@github.com:MarlinFirmware/Marlin.git Marlin -b bugfix-2.0.x --depth 1
+git clone git@github.com:MarlinFirmware/Marlin.git Marlin -b bugfix-2.1.x --depth 1
 ```
 
 ## _Run build steps_
-For each machine you want to target, replace V1CNC_ConfigName with the machine config. (eg. V1CNC_SkrPro_DualLR_2209)
+For each machine you want to target, replace V1CNC_ConfigName with the machine config. (eg. `V1CNC_SkrPro_DualLR_2209`)
 ```
 source .venv/bin/activate
 src/core/config-for-machine V1CNC_ConfigName

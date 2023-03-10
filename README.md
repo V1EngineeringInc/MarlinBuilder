@@ -11,10 +11,12 @@ V1Engineering.com machines.
 
 ## Getting started
 
-If you are looking for the latest release, you should go here:
+If you are looking for the latest release, you should go and download it here:
 
 [Latest Release](https://github.com/V1EngineeringInc/MarlinBuilder/releases/latest)
 
 ## Experts and Developers
+
+To build from source, read the [documentation](src#readme).
 
 Nightly builds are found in the "Actions" tab above.
