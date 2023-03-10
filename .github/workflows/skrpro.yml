@@ -53,10 +53,10 @@ jobs:
     - uses: technote-space/auto-cancel-redundant-job@v1.7.5
 
     # Based on .github/workflows/test-builds.yml
-    - name: Select Python 3.11.2
-      uses: actions/setup-python@v3.11.2
+    - name: Select Python 3.11
+      uses: actions/setup-python@v4.5.0
       with:
-        python-version: '3.11.2' # Version range or exact version of a Python version to use, using semvers version range syntax.
+        python-version: '3.11' # Version range or exact version of a Python version to use, using semvers version range syntax.
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
 
     - name: Install PlatformIO
