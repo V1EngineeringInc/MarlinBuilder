@@ -37,7 +37,7 @@ jobs:
         branch: ${{ fromJson(
           github.event_name == 'schedule' && '["bugfix-2.1.x"]' ||
           github.event_name == 'pull_request' && '["bugfix-2.1.x", "2.1.2"]' ||
-          '["2.1.1"]') }}
+          '["2.1.2"]') }}
         machine:
         - V13DP_SkrPro_2209
         - V13RP_SkrPro_2209
@@ -50,7 +50,7 @@ jobs:
     steps:
 
     # First, cancel unfinished jobs.
-    - uses: technote-space/auto-cancel-redundant-job@v1.7.5
+    #- uses: technote-space/auto-cancel-redundant-job@v1.7.5
 
     # Based on .github/workflows/test-builds.yml
     - name: Select Python 3.11
