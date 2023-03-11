@@ -36,8 +36,8 @@ jobs:
       matrix:
         branch: ${{ fromJson(
           github.event_name == 'schedule' && '["bugfix-2.1.x"]' ||
-          github.event_name == 'pull_request' && '["bugfix-2.1.x", "2.1.1"]' ||
-          '["2.1.1"]') }}
+          github.event_name == 'pull_request' && '["bugfix-2.1.x", "2.1.2"]' ||
+          '["2.1.2"]') }}
         machine:
         - V1CNC_SkrTurbo_8825
         - V1CNC_SkrTurbo_DualLR_8825
@@ -49,13 +49,13 @@ jobs:
     steps:
 
     # First, cancel unfinished jobs.
-    - uses: technote-space/auto-cancel-redundant-job@v1
+    #- uses: technote-space/auto-cancel-redundant-job@v1.7.5
 
     # Based on .github/workflows/test-builds.yml
-    - name: Select Python 3.7
-      uses: actions/setup-python@v1
+    - name: Select Python 3.x
+      uses: actions/setup-python@v4.5.0
       with:
-        python-version: '3.7' # Version range or exact version of a Python version to use, using semvers version range syntax.
+        python-version: '3.x' # Version range or exact version of a Python version to use, using semvers version range syntax.
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
 
     - name: Install PlatformIO
@@ -64,10 +64,10 @@ jobs:
         platformio update
 
     - name: Check out MarlinBuilder
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3.3.0
 
     - name: Check out MarlinFirmware
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3.3.0
       with:
         repository: MarlinFirmware/Marlin
         ref: ${{ matrix.branch }}
@@ -84,7 +84,7 @@ jobs:
         src/core/zip-marlin
 
     - name: Upload src artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3.1.2
       with:
         name: ${{ matrix.machine }}-${{ matrix.branch }}
         path: |
@@ -99,7 +99,7 @@ jobs:
         src/core/zip-release
 
     - name: Upload built artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3.1.2
       with:
         name: ${{ matrix.machine }}-${{ matrix.branch }}
         path: |
@@ -108,7 +108,7 @@ jobs:
 
     - name: Upload Marlin-${{ matrix.machine }}-${{ matrix.branch }}.zip to release
       if: ${{ github.event_name == 'release' }}
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@v1.0.2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
