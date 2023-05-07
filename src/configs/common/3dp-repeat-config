@@ -27,8 +27,7 @@ opt_set PROBING_MARGIN 5
 opt_set Z_PROBE_FEEDRATE_FAST "(5*60)"
 
 opt_set Z_CLEARANCE_DEPLOY_PROBE 8
-opt_set Z_HOMING_HEIGHT  0
-opt_set Z_AFTER_HOMING  10
+opt_set Z_CLEARANCE_FOR_HOMING  0
 opt_set Z_HOME_DIR 1
 opt_set Y_BED_SIZE 205
 opt_set X_MIN_POS -23
