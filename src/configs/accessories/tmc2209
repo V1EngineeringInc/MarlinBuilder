@@ -11,7 +11,7 @@ opt_set Z_CURRENT 900
 
 opt_enable \
     MONITOR_DRIVER_STATUS \
-    SQUARE_WAVE_STEPPING \
+    EDGE_STEPPING \
     TMC_DEBUG
 
 opt_disable \
