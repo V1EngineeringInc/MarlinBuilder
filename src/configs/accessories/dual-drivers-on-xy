@@ -8,11 +8,12 @@ opt_set AXIS_RELATIVE_MODES "{ false, false, false }"
 opt_enable \
     MIN_SOFTWARE_ENDSTOPS \
     SOFT_ENDSTOPS_MENU_ITEM \
-    USE_XMAX_PLUG \
-    USE_YMAX_PLUG \
     INVERT_X2_VS_X_DIR \
     X_DUAL_ENDSTOPS \
     INVERT_Y2_VS_Y_DIR \
     Y_DUAL_ENDSTOPS
+
+opt_set X2_STOP_PIN X_MAX_PIN
+opt_set Y2_STOP_PIN Y_MAX_PIN
 
 echo "- Configured for Dual XY" >> README.md
