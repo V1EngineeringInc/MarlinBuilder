@@ -5,9 +5,10 @@ opt_set DUMMY_THERMISTOR_999_VALUE 170
 opt_disable \
     MIN_SOFTWARE_ENDSTOPS \
     SOFT_ENDSTOPS_MENU_ITEM \
-    USE_XMAX_PLUG \
-    USE_YMAX_PLUG \
     X_DUAL_ENDSTOPS \
     Y_DUAL_ENDSTOPS
+
+opt_set X2_STOP_PIN X_MAX_PIN
+opt_set Y2_STOP_PIN Y_MAX_PIN
 
 echo "- Configured for Single Driver XYZ" >> README.md
