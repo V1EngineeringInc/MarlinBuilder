@@ -52,10 +52,6 @@ opt_set Z_STEPPER_ALIGN_ACC        0.04
 opt_set MANUAL_FEEDRATE "{ 40*60, 40*60, 20*60, 2*60 }"
 opt_set FINE_MANUAL_MOVE 0.01
 
-opt_set Z_STOP_PIN Z_MAX_PIN
-opt_set Z2_STOP_PIN X_MAX_PIN
-opt_set Z3_STOP_PIN Y_MAX_PIN
-
 opt_enable \
     COREXY \
     Z3_DRIVER_TYPE \
@@ -72,6 +68,9 @@ opt_enable \
     EEPROM_SETTINGS \
     SDSUPPORT \
     ADAPTIVE_STEP_SMOOTHING \
+    USE_XMAX_PLUG \
+    USE_YMAX_PLUG \
+    USE_ZMAX_PLUG \
     GCODE_MOTION_MODES
 
 opt_disable \
