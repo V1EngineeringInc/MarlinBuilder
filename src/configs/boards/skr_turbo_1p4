@@ -1,12 +1,16 @@
 opt_set MOTHERBOARD BOARD_BTT_SKR_V1_4_TURBO
 
-opt_set SERIAL_PORT 0
+# set SERIAL_PORT to 3 to enable communication with ESP32
+opt_set SERIAL_PORT 3
 opt_set SERIAL_PORT_2 "-1"
 
-opt_set Y_MAX_PIN E1_DIAG_PIN
-opt_set X_MAX_PIN E0_DIAG_PIN
-opt_set Z_MIN_PIN P1_27
-opt_set Z_MAX_PIN P1_00
+# fix the baudrate to 115200
+opt_set BAUDRATE 115200
+
+opt_set Y_MAX_PIN E1_DIAG_PIN # y2_min
+opt_set X_MAX_PIN E0_DIAG_PIN # z2_max
+opt_set Z_MIN_PIN P0_10 # z_min (Probe)
+opt_set Z_MAX_PIN P1_27 # z_max
 
 . $CFGDIR/accessories/use-32-microsteps
 
