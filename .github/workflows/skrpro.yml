@@ -87,7 +87,7 @@ jobs:
     - name: Upload src artifact
       uses: actions/upload-artifact@v4.6.2
       with:
-        name: ${{ matrix.machine }}-${{ matrix.branch }}
+        name: ${{ matrix.machine }}-${{ matrix.branch }}-${{ strategy.job-index }}
         path: |
           Marlin_*.zip
 
@@ -102,7 +102,7 @@ jobs:
     - name: Upload built artifact
       uses: actions/upload-artifact@v4.6.2
       with:
-        name: ${{ matrix.machine }}-${{ matrix.branch }}
+        name: ${{ matrix.machine }}-${{ matrix.branch }}-${{ strategy.job-index }}
         path: |
           firmware*
           Marlin_*.zip
