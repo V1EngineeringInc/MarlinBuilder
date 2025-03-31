@@ -62,10 +62,10 @@ jobs:
         platformio update
 
     - name: Check out MarlinBuilder
-      uses: actions/checkout@v3.3.0
+      uses: actions/checkout@v4.2.2
 
     - name: Check out MarlinFirmware
-      uses: actions/checkout@v3.3.0
+      uses: actions/checkout@v4.2.2
       with:
         repository: MarlinFirmware/Marlin
         ref: ${{ matrix.branch }}
@@ -82,7 +82,7 @@ jobs:
         src/core/zip-marlin
 
     - name: Upload src artifact
-      uses: actions/upload-artifact@v3.1.2
+      uses: actions/upload-artifact@v4.6.2
       with:
         name: ${{ matrix.machine }}-${{ matrix.branch }}
         path: |
@@ -97,7 +97,7 @@ jobs:
         src/core/zip-release
 
     - name: Upload built artifact
-      uses: actions/upload-artifact@v3.1.2
+      uses: actions/upload-artifact@v4.6.2
       with:
         name: ${{ matrix.machine }}-${{ matrix.branch }}
         path: |
