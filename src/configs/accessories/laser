@@ -1,6 +1,11 @@
 opt_set SPINDLE_LASER_ACTIVE_STATE    HIGH
 opt_set SPEED_POWER_STARTUP 15
 
+# Required when using LASER_FEATURE since
+# https://github.com/MarlinFirmware/Marlin/commit/43d9d1ce1bc708f178612da0baa972c2f8fbe712
+# (Missing in sanity check)
+opt_set CUTTER_POWER_MAX 100
+
 opt_enable \
     LASER_FEATURE \
     LASER_POWER_SYNC \
