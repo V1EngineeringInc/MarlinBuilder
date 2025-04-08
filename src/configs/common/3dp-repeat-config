@@ -33,6 +33,9 @@ opt_set Y_BED_SIZE 205
 opt_set X_MIN_POS -23
 opt_set Y_MIN_POS -3
 opt_set Z_MAX_POS 223
+opt_set Z2_STOP_PIN Z_MAX_PIN
+opt_set Z3_STOP_PIN Z_MAX_PIN
+
 
 opt_set MESH_TEST_NOZZLE_SIZE    0.5
 opt_set MESH_TEST_LAYER_HEIGHT   0.35
