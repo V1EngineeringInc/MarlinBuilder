@@ -18,4 +18,10 @@ opt_set Y_DRIVER_TYPE  "TMC2209"
 opt_set Z_DRIVER_TYPE  "TMC2209"
 opt_set E0_DRIVER_TYPE  "TMC2209"
 
-export PLATFORMIO_ENV=BIGTREE_SKR_PRO
+if [ ${MARLIN_CONFIG_VERSION} -gt 02010205 ]; then
+  export PLATFORMIO_ENV=BTT_SKR_PRO
+  echo "Marlin > 2.1.2.5"
+else
+  export PLATFORMIO_ENV=BIGTREE_SKR_PRO
+  echo "Marlin <= 2.1.2.5"
+fi

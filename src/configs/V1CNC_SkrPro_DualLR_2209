@@ -15,8 +15,8 @@ $CFGDIR/accessories/dual-drivers-on-yz
 $CFGDIR/boards/skr_pro_dual
 $CFGDIR/accessories/laser
 
-opt_add SPINDLE_LASER_PWM_PIN PC9
-opt_add SPINDLE_LASER_ENA_PIN PB0 // Heater2
+opt_set SPINDLE_LASER_PWM_PIN PC9
+opt_set SPINDLE_LASER_ENA_PIN PB0 # Heater2
 
 
 opt_set X_DRIVER_TYPE  "TMC2209"
@@ -32,4 +32,10 @@ opt_disable \
     E0_DRIVER_TYPE
 
 
-export PLATFORMIO_ENV=BIGTREE_SKR_PRO
+if [ ${MARLIN_CONFIG_VERSION} -gt 02010205 ]; then
+  export PLATFORMIO_ENV=BTT_SKR_PRO
+  echo "Marlin > 2.1.2.5"
+else
+  export PLATFORMIO_ENV=BIGTREE_SKR_PRO
+  echo "Marlin <= 2.1.2.5"
+fi
