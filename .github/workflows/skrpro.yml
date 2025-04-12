@@ -7,6 +7,7 @@ on:
   push:
     branches:
     - main
+  workflow_dispatch:
   pull_request:
     branches:
     - main
@@ -37,6 +38,7 @@ jobs:
         branch: ${{ fromJson(
           github.event_name == 'schedule' && '["bugfix-2.1.x"]' ||
           github.event_name == 'pull_request' && '["bugfix-2.1.x", "2.1.2"]' ||
+          github.event_name == 'workflow_dispatch' && '["bugfix-2.1.x"]' ||
           '["2.1.2"]') }}
         machine:
         - V13DP_SkrPro_2209
